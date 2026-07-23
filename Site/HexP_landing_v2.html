@@ -82,11 +82,14 @@
   @media(max-width:1040px){.hero-pills{display:none}}
 
   .device{margin:110px auto 0;position:relative;z-index:1;max-width:1000px;background:var(--bg2);border:1px solid var(--line);border-radius:20px;padding:10px;box-shadow:0 30px 80px -44px rgba(15,19,25,.4)}
-  .screen{background:#fff;border:1px solid var(--line);border-radius:13px;overflow:hidden}
+  .screen{background:#fff;border:1px solid var(--line);border-radius:13px;overflow:hidden;aspect-ratio:16/9;display:flex;flex-direction:column;position:relative}
   .topbar{display:flex;align-items:center;gap:7px;padding:12px 15px;border-bottom:1px solid var(--line)}
   .dot{width:10px;height:10px;border-radius:999px;background:#E2E8F0}
   .url{margin-left:12px;font-size:12px;color:var(--faint)}
-  .app{display:flex}
+  .app{display:flex;flex:1;min-height:0}
+  .play-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(15,19,25,.16);z-index:5;cursor:pointer}
+  .play-btn{width:64px;height:64px;border-radius:999px;background:rgba(255,255,255,.96);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 32px -8px rgba(15,19,25,.55)}
+  .play-btn svg{margin-left:4px}
   .side{width:184px;flex:none;border-right:1px solid var(--line);padding:15px 11px}
   .side .lg{font-weight:700;font-size:15px;padding:4px 8px 15px;letter-spacing:-.02em}
   .ni{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);padding:8px 11px;border-radius:8px}
@@ -312,7 +315,7 @@
   <div class="wrap">
   <div class="hero-top">
     <div class="h1wrap">
-      <h1><span class="wm"><span class="wi" style="animation-delay:.1s">The</span></span> <span class="wm"><span class="wi" style="animation-delay:.16s">Unified,</span></span> <span class="wm"><span class="wi" style="animation-delay:.22s">Intelligent</span></span> <span class="wm"><span class="wi" style="animation-delay:.28s">University</span></span> <span class="wm"><span class="wi" style="animation-delay:.34s">Built</span></span> <span class="wm"><span class="wi" style="animation-delay:.4s">for</span></span> <span class="wm"><span class="wi" style="animation-delay:.46s">Tomorrow</span></span></h1>
+      <h1><span class="wm"><span class="wi" style="animation-delay:.1s">The</span></span> <span class="wm"><span class="wi" style="animation-delay:.16s">Unified,</span></span> <span class="wm"><span class="wi" style="animation-delay:.22s">Intelligent</span></span> <span class="wm"><span class="wi" style="animation-delay:.28s">University</span></span> <span class="wm"><span class="wi" style="animation-delay:.34s">—</span></span> <span class="wm"><span class="wi" style="animation-delay:.4s">Built</span></span> <span class="wm"><span class="wi" style="animation-delay:.46s">for</span></span> <span class="wm"><span class="wi" style="animation-delay:.52s">Tomorrow</span></span></h1>
       <svg class="spark spark-l" viewBox="0 0 24 20" fill="#6B26D9"><path d="M12 1C12.9 6.7 14.6 8.4 20 9.3C14.6 10.2 12.9 11.9 12 17.6C11.1 11.9 9.4 10.2 4 9.3C9.4 8.4 11.1 6.7 12 1Z"/></svg>
       <svg class="spark spark-s" viewBox="0 0 24 20" fill="#8B5CF6"><path d="M12 1C12.9 6.7 14.6 8.4 20 9.3C14.6 10.2 12.9 11.9 12 17.6C11.1 11.9 9.4 10.2 4 9.3C9.4 8.4 11.1 6.7 12 1Z"/></svg>
     </div>
@@ -329,6 +332,7 @@
 
   <div class="device">
     <div class="screen">
+      <div class="play-overlay"><div class="play-btn"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M6 4L18 11L6 18V4Z" fill="var(--primary)"/></svg></div></div>
       <div class="topbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">app.hexp.edu / overview</span></div>
       <div class="app">
         <div class="side">
