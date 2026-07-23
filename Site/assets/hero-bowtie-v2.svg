@@ -1,0 +1,83 @@
+<svg viewBox="0 0 1200 480" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="hubGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6B26D9"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+    <filter id="softShadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#1E1240" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <g filter="url(#softShadow)">
+    <path d="M 150.0 40.0 C 354.0 40.0, 480.0 210.0, 542.0 240.0" fill="none" stroke="#6B26D9" stroke-width="13.0" opacity="0.85" stroke-linecap="round"/><path d="M 104.4 128.0 C 335.8 128.0, 480.0 223.2, 542.0 240.0" fill="none" stroke="#6B26D9" stroke-width="12.7" opacity="0.85" stroke-linecap="round"/><path d="M 150.0 216.0 C 354.0 216.0, 480.0 236.4, 542.0 240.0" fill="none" stroke="#6B26D9" stroke-width="12.4" opacity="0.85" stroke-linecap="round"/><path d="M 127.2 304.0 C 344.9 304.0, 480.0 249.6, 542.0 240.0" fill="none" stroke="#6B26D9" stroke-width="12.1" opacity="0.85" stroke-linecap="round"/><path d="M 134.8 392.0 C 347.9 392.0, 480.0 262.8, 542.0 240.0" fill="none" stroke="#6B26D9" stroke-width="11.8" opacity="0.85" stroke-linecap="round"/><path d="M 150.0 440.0 C 354.0 440.0, 480.0 270.0, 542.0 240.0" fill="none" stroke="#6B26D9" stroke-width="11.5" opacity="0.85" stroke-linecap="round"/>
+    <path d="M 658.0 240.0 C 720.0 210.0, 827.8 40.0, 1004.4 40.0" fill="none" stroke="#2563EB" stroke-width="13.0" opacity="0.85" stroke-linecap="round"/><path d="M 658.0 240.0 C 720.0 225.0, 843.0 140.0, 1042.4 140.0" fill="none" stroke="#2563EB" stroke-width="12.7" opacity="0.85" stroke-linecap="round"/><path d="M 658.0 240.0 C 720.0 240.0, 839.9 240.0, 1034.8 240.0" fill="none" stroke="#2563EB" stroke-width="12.4" opacity="0.85" stroke-linecap="round"/><path d="M 658.0 240.0 C 720.0 255.0, 836.9 340.0, 1027.2 340.0" fill="none" stroke="#2563EB" stroke-width="12.1" opacity="0.85" stroke-linecap="round"/><path d="M 658.0 240.0 C 720.0 270.0, 830.8 440.0, 1012.0 440.0" fill="none" stroke="#2563EB" stroke-width="11.8" opacity="0.85" stroke-linecap="round"/>
+  </g>
+  <g>
+  <rect x="270.0" y="184.0" width="108" height="26" rx="13" fill="#0F1319"/>
+  <text x="324.0" y="201.5" text-anchor="middle" font-family="DM Sans, system-ui, sans-serif" font-size="11" font-weight="600" fill="#fff">Fee cleared</text>
+</g>
+  <g>
+  <rect x="822.0" y="270.0" width="126" height="26" rx="13" fill="#0F1319"/>
+  <text x="885.0" y="287.5" text-anchor="middle" font-family="DM Sans, system-ui, sans-serif" font-size="11" font-weight="600" fill="#fff">Report generated</text>
+</g>
+  <g><circle cx="320.0" cy="88.0" r="4.2" fill="#fff" stroke="#6B26D9" stroke-width="2"/><circle cx="297.2" cy="154.9" r="4.2" fill="#fff" stroke="#6B26D9" stroke-width="2"/><circle cx="320.0" cy="221.8" r="4.2" fill="#fff" stroke="#6B26D9" stroke-width="2"/><circle cx="308.6" cy="288.6" r="4.2" fill="#fff" stroke="#6B26D9" stroke-width="2"/><circle cx="312.4" cy="355.5" r="4.2" fill="#fff" stroke="#6B26D9" stroke-width="2"/><circle cx="320.0" cy="392.0" r="4.2" fill="#fff" stroke="#6B26D9" stroke-width="2"/><circle cx="857.2" cy="88.0" r="4.2" fill="#fff" stroke="#2563EB" stroke-width="2"/><circle cx="876.2" cy="164.0" r="4.2" fill="#fff" stroke="#2563EB" stroke-width="2"/><circle cx="872.4" cy="240.0" r="4.2" fill="#fff" stroke="#2563EB" stroke-width="2"/><circle cx="868.6" cy="316.0" r="4.2" fill="#fff" stroke="#2563EB" stroke-width="2"/><circle cx="861.0" cy="392.0" r="4.2" fill="#fff" stroke="#2563EB" stroke-width="2"/></g>
+  <circle cx="600" cy="240" r="56" fill="url(#hubGrad)" filter="url(#softShadow)"/>
+  <circle cx="600" cy="240" r="56" fill="none" stroke="#fff" stroke-width="3" opacity="0.5"/>
+  <text x="600" y="246" text-anchor="middle" font-family="DM Sans, system-ui, sans-serif" font-size="19" font-weight="800" fill="#fff" letter-spacing="-0.02em">HexP</text>
+  <g>
+    <rect x="18.0" y="20.0" width="118.0" height="40" rx="20" fill="#fff" stroke="#E4E4E7" stroke-width="1.2"/>
+    <circle cx="40.0" cy="40.0" r="13" fill="#EDE6FA"/>
+    <g transform="translate(32.0,32.0)"><g fill="none" stroke="#6B26D9" stroke-width="1.6" stroke-linejoin="round"><rect x="2" y="2" width="6" height="6" rx="1.2"/><rect x="10" y="2" width="6" height="6" rx="1.2"/><rect x="2" y="10" width="6" height="6" rx="1.2"/><rect x="10" y="10" width="6" height="6" rx="1.2"/></g></g>
+    <text x="60.0" y="44.5" text-anchor="start" font-family="DM Sans, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0F1319">Admissions</text>
+  </g><g>
+    <rect x="18.0" y="108.0" width="72.4" height="40" rx="20" fill="#fff" stroke="#E4E4E7" stroke-width="1.2"/>
+    <circle cx="40.0" cy="128.0" r="13" fill="#EDE6FA"/>
+    <g transform="translate(32.0,120.0)"><g fill="none" stroke="#6B26D9" stroke-width="1.6" stroke-linecap="round"><path d="M4 3h10M4 7h10M4 3c5 0 5 4 0 4H6l6 6"/></g></g>
+    <text x="60.0" y="132.5" text-anchor="start" font-family="DM Sans, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0F1319">Fees</text>
+  </g><g>
+    <rect x="18.0" y="196.0" width="118.0" height="40" rx="20" fill="#fff" stroke="#E4E4E7" stroke-width="1.2"/>
+    <circle cx="40.0" cy="216.0" r="13" fill="#EDE6FA"/>
+    <g transform="translate(32.0,208.0)"><g fill="none" stroke="#6B26D9" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M9 1.5 15 4v5.5c0 4-6 7.5-6 7.5s-6-3.5-6-7.5V4z"/><path d="M6 9l2 2 4-4"/></g></g>
+    <text x="60.0" y="220.5" text-anchor="start" font-family="DM Sans, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0F1319">Compliance</text>
+  </g><g>
+    <rect x="18.0" y="284.0" width="95.19999999999999" height="40" rx="20" fill="#fff" stroke="#E4E4E7" stroke-width="1.2"/>
+    <circle cx="40.0" cy="304.0" r="13" fill="#EDE6FA"/>
+    <g transform="translate(32.0,296.0)"><g fill="none" stroke="#6B26D9" stroke-width="1.6" stroke-linecap="round"><circle cx="6.5" cy="5.5" r="2.4"/><path d="M2 15c0-3 2-5 4.5-5s4.5 2 4.5 5"/><path d="M11.5 4a2.4 2.4 0 0 1 0 4.6"/><path d="M13 10.4c1.6.4 2.8 2 2.8 4.6"/></g></g>
+    <text x="60.0" y="308.5" text-anchor="start" font-family="DM Sans, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0F1319">Faculty</text>
+  </g><g>
+    <rect x="18.0" y="372.0" width="102.8" height="40" rx="20" fill="#fff" stroke="#E4E4E7" stroke-width="1.2"/>
+    <circle cx="40.0" cy="392.0" r="13" fill="#EDE6FA"/>
+    <g transform="translate(32.0,384.0)"><g fill="none" stroke="#6B26D9" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M9 2 1 6l8 4 8-4Z"/><path d="M4.5 8v4c0 1.2 2 2.2 4.5 2.2s4.5-1 4.5-2.2V8"/></g></g>
+    <text x="60.0" y="396.5" text-anchor="start" font-family="DM Sans, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0F1319">Students</text>
+  </g><g>
+    <rect x="18.0" y="420.0" width="118.0" height="40" rx="20" fill="#fff" stroke="#E4E4E7" stroke-width="1.2"/>
+    <circle cx="40.0" cy="440.0" r="13" fill="#EDE6FA"/>
+    <g transform="translate(32.0,432.0)"><g fill="none" stroke="#6B26D9" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><rect x="2" y="6" width="14" height="9" rx="1.6"/><path d="M6.5 6V4.5A1.5 1.5 0 0 1 8 3h2a1.5 1.5 0 0 1 1.5 1.5V6"/></g></g>
+    <text x="60.0" y="444.5" text-anchor="start" font-family="DM Sans, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0F1319">Placements</text>
+  </g><g>
+    <rect x="1018.4" y="20.0" width="163.6" height="40" rx="20" fill="#fff" stroke="#E4E4E7" stroke-width="1.2"/>
+    <circle cx="1160.0" cy="40.0" r="13" fill="#E4EBFB"/>
+    <g transform="translate(1152.0,32.0)"><g fill="none" stroke="#2563EB" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M10 1 3 10h5l-1 7 8-10H10Z"/></g></g>
+    <text x="1140.0" y="44.5" text-anchor="end" font-family="DM Sans, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0F1319">Faster decisions</text>
+  </g><g>
+    <rect x="1056.4" y="120.0" width="125.6" height="40" rx="20" fill="#fff" stroke="#E4E4E7" stroke-width="1.2"/>
+    <circle cx="1160.0" cy="140.0" r="13" fill="#E4EBFB"/>
+    <g transform="translate(1152.0,132.0)"><g fill="none" stroke="#2563EB" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="7"/><path d="M5.5 9.2 8 11.7 12.6 6.4"/></g></g>
+    <text x="1140.0" y="144.5" text-anchor="end" font-family="DM Sans, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0F1319">Audit-ready</text>
+  </g><g>
+    <rect x="1048.8" y="220.0" width="133.2" height="40" rx="20" fill="#fff" stroke="#E4E4E7" stroke-width="1.2"/>
+    <circle cx="1160.0" cy="240.0" r="13" fill="#E4EBFB"/>
+    <g transform="translate(1152.0,232.0)"><g fill="none" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 13 7 8l3 3 6-7"/><path d="M13 4h4v4"/></g></g>
+    <text x="1140.0" y="244.5" text-anchor="end" font-family="DM Sans, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0F1319">Fewer errors</text>
+  </g><g>
+    <rect x="1041.2" y="320.0" width="140.8" height="40" rx="20" fill="#fff" stroke="#E4E4E7" stroke-width="1.2"/>
+    <circle cx="1160.0" cy="340.0" r="13" fill="#E4EBFB"/>
+    <g transform="translate(1152.0,332.0)"><g fill="none" stroke="#2563EB" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><rect x="2" y="6" width="14" height="9" rx="1.6"/><path d="M6.5 6V4.5A1.5 1.5 0 0 1 8 3h2a1.5 1.5 0 0 1 1.5 1.5V6"/></g></g>
+    <text x="1140.0" y="344.5" text-anchor="end" font-family="DM Sans, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0F1319">Placements up</text>
+  </g><g>
+    <rect x="1026.0" y="420.0" width="156.0" height="40" rx="20" fill="#fff" stroke="#E4E4E7" stroke-width="1.2"/>
+    <circle cx="1160.0" cy="440.0" r="13" fill="#E4EBFB"/>
+    <g transform="translate(1152.0,432.0)"><g fill="none" stroke="#2563EB" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M9 15.5 2.5 9.7C.5 7.9 1 4.8 3.4 3.7c1.7-.8 3.6-.2 4.6 1.2C9 3.5 10.9 2.9 12.6 3.7c2.4 1.1 2.9 4.2.9 6Z"/></g></g>
+    <text x="1140.0" y="444.5" text-anchor="end" font-family="DM Sans, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0F1319">Happier faculty</text>
+  </g>
+</svg>

@@ -3,378 +3,92 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HexP — Brand Direction</title>
+<title>HexP — Homepage versions</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
 <style>
-  @font-face{font-family:"Bilena";src:url("Fontes/OLD STYLE/WOFF/Bilena.woff2") format("woff2"),url("Fontes/OLD STYLE/WOFF/Bilena.woff") format("woff");font-weight:400;font-display:swap}
-  *{box-sizing:border-box;margin:0;padding:0}
-  :root{--ink:#1A1A1A;--mut:#5E636E;--faint:#9195A0;--line:#E7E7EB;--bg:#FFFFFF;--bg2:#FAFAF9}
-  body{background:var(--bg);color:var(--ink);font-family:"Inter",system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6}
-  .wrap{max-width:1240px;margin:0 auto;padding:0 40px}
-  body{font-size:16.5px}
-  a{color:inherit;text-decoration:none}
-
-  .topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
-  .topbar .brand{font-weight:700;font-size:16px;letter-spacing:-.01em}
-  .topbar nav{display:flex;gap:8px}
-  .topbar nav a{font-size:13.5px;font-weight:500;color:var(--mut);padding:7px 13px;border-radius:8px}
-  .topbar nav a:hover{background:var(--bg2);color:var(--ink)}
-
-  header.hero{padding:70px 0 40px;border-bottom:1px solid var(--line)}
-  .kick{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:14px}
-  header.hero h1{font-size:50px;font-weight:700;letter-spacing:-.025em;margin-bottom:12px}
-  header.hero p{font-size:18px;color:var(--mut);max-width:680px}
-
-  section{padding:78px 0}
-  .sec-h{font-size:14px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:26px}
-
-  table.cmp{width:100%;border-collapse:collapse;font-size:15.5px}
-  table.cmp th,table.cmp td{text-align:left;padding:18px 18px;border-bottom:1px solid var(--line);vertical-align:top}
-  table.cmp thead th{font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--faint);font-weight:600;border-bottom:1.5px solid #D8D8DC}
-  table.cmp thead th.s{width:34%}
-  table.cmp thead th .nm{font-size:16px;font-weight:700;text-transform:none;letter-spacing:-.01em;color:var(--ink);display:block;margin-bottom:2px}
-  table.cmp thead th .who{font-size:11.5px;color:var(--mut);text-transform:none;letter-spacing:0;font-weight:400}
-  table.cmp td.crit{font-weight:600;width:20%;color:var(--ink)}
-  .lvl{display:inline-block;font-size:11px;font-weight:600;padding:3px 9px;border-radius:999px;letter-spacing:.02em;margin-bottom:5px}
-  .lvl.high{background:#1A1A1A;color:#fff}
-  .lvl.med{background:#E7E7EA;color:#3a3a3a}
-  .lvl.low{background:#fff;color:#8a8a8a;border:1px solid #E0E0E3}
-  .lvl.flag{background:#F6E3D2;color:#9A5A22}
-  .note{font-size:12.5px;color:var(--mut);display:block}
-  .swatch{color:var(--faint);font-weight:600;font-size:11px}
-
-  .style{border-top:1px solid var(--line)}
-  .style .lead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:22px}
-  .style .lead h2{font-size:38px;font-weight:700;letter-spacing:-.02em}
-  .style .lead .tag{font-size:12px;font-weight:600;color:var(--mut);background:var(--bg2);border:1px solid var(--line);padding:4px 11px;border-radius:999px}
-  .why{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 34px;margin-bottom:48px;max-width:900px}
-  .why .b{font-size:15.5px;color:var(--mut)}
-  .why .b b{color:var(--ink);font-weight:600}
-
-  .block{margin-bottom:38px}
-  .block .lbl{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:14px}
-  .sw-row{display:flex;flex-wrap:wrap;gap:14px}
-  .sw{width:150px}
-  .sw .chip{height:76px;border-radius:12px;border:1px solid rgba(0,0,0,.08)}
-  .sw .n{font-size:13.5px;font-weight:600;margin-top:9px}
-  .sw .h{font-size:12px;color:var(--faint);letter-spacing:.02em}
-  .sw .role{font-size:13.5px;color:var(--mut);margin-top:3px}
-  .grp{margin-bottom:24px}
-  .grp:last-child{margin-bottom:0}
-  .gl{font-size:12.5px;font-weight:600;color:var(--ink);margin-bottom:12px}
-  .gl span{font-weight:400;color:var(--mut)}
-
-  .type-card{border:1px solid var(--line);border-radius:14px;padding:24px 26px;background:var(--bg2)}
-  .type-card .big{font-size:52px;line-height:1.08;margin-bottom:12px;color:var(--ink)}
-  .type-card .meta{font-size:12.5px;color:var(--mut)}
-  .type-card .body{font-size:15px;color:#3a3f4a;margin-top:14px;max-width:560px}
-
-  .ico-row{display:flex;gap:16px;flex-wrap:wrap}
-  .ico-row{gap:18px}
-  .ico-row .ic{width:104px;height:104px;border:1px solid var(--line);border-radius:18px;display:flex;align-items:center;justify-content:center;background:#fff}
-
-  .imgtile{height:150px;border-radius:12px;border:1px dashed var(--line);display:flex;align-items:center;justify-content:center;color:var(--faint);font-size:13px;background:var(--bg2);text-align:center;padding:0 20px}
-
-  .site{border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 24px 60px -40px rgba(0,0,0,.4)}
-  .site .bar{display:flex;align-items:center;justify-content:space-between;padding:11px 16px;background:var(--bg2);border-bottom:1px solid var(--line)}
-  .site .bar .dots{display:flex;gap:6px}
-  .site .bar .dots span{width:10px;height:10px;border-radius:999px;background:#D6D6DA}
-  .site .bar .u{font-size:12px;color:var(--faint)}
-  .site .bar a{font-size:12.5px;font-weight:600;color:var(--ink);border:1px solid var(--line);padding:6px 12px;border-radius:8px;background:#fff}
-  .site iframe{width:100%;height:940px;border:0;display:block;background:#fff}
-  .hint{font-size:15px;line-height:1.5;color:var(--mut);margin-top:12px}
-  .tex-row{display:flex;gap:14px;flex-wrap:wrap}
-  .tex-t{width:200px}
-  .tex-t .box{height:110px;border-radius:12px;border:1px solid var(--line);overflow:hidden;position:relative}
-  .tex-t .box svg{display:block;width:100%;height:100%}
-  .tex-t .cap{font-size:15px;font-weight:600;margin-top:10px}
-  .tex-t .d{font-size:13.5px;line-height:1.45;color:var(--mut);margin-top:2px}
-  .use{display:flex;flex-direction:column;gap:15px;margin-bottom:14px}
-  .use .u{display:flex;gap:13px;align-items:flex-start;font-size:15px;line-height:1.5;color:var(--mut)}
-  .use .u b{color:var(--ink);font-weight:600}
-  .use .d{flex:none;width:20px;height:20px;border-radius:6px;margin-top:1px}
-  .grad-row{display:flex;gap:14px;flex-wrap:wrap}
-  .gt{width:232px}
-  .gt .gband{height:76px;border-radius:12px;border:1px solid var(--line)}
-  .gt .n{font-weight:600;font-size:14px;margin-top:9px}
-  .gt .h{font-size:12.5px;color:var(--faint)}
-  .gt .role{font-size:13px;color:var(--mut);margin-top:2px}
-  footer{border-top:1px solid var(--line);padding:36px 0;font-size:12.5px;color:var(--faint)}
+  :root{
+    --primary:#6B26D9; --primary-d:#481797; --primary-l:#EDE6FA;
+    --blue:#2563EB; --org:#F97316; --grn:#16A249;
+    --ink:rgba(0,0,0,.94); --muted:rgba(0,0,0,.6); --line:rgba(0,0,0,.1); --bg2:#F8FAFC;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:#fff;color:var(--ink);font-family:"DM Sans",system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:980px;margin:0 auto;padding:80px 24px 100px}
+  .eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:var(--primary-d);background:var(--primary-l);padding:5px 12px;border-radius:999px}
+  h1{font-size:38px;letter-spacing:-.02em;line-height:1.12;margin:16px 0 10px}
+  .sub{color:var(--muted);font-size:16px;line-height:1.6;max-width:560px;margin:0 0 46px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}}
+  .card{border:1px solid var(--line);border-radius:20px;background:#fff;overflow:hidden;box-shadow:0 20px 44px -30px rgba(15,19,25,.18);transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease;display:flex;flex-direction:column}
+  .card:hover{transform:translateY(-4px);box-shadow:0 26px 54px -30px rgba(15,19,25,.24)}
+  .thumb{height:200px;position:relative;overflow:hidden;background:var(--bg2)}
+  .thumb.v1{background:radial-gradient(120% 120% at 20% 15%,#EDE6FA 0%,#fff 60%)}
+  .thumb.v2{background:radial-gradient(120% 120% at 80% 15%,#E4EBFB 0%,#fff 60%)}
+  .thumb svg{position:absolute;inset:0;width:100%;height:100%}
+  .tag{position:absolute;top:14px;left:14px;font-size:11px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;background:rgba(255,255,255,.9);border:1px solid var(--line);color:var(--muted);padding:4px 10px;border-radius:999px}
+  .body{padding:24px 26px 26px;display:flex;flex-direction:column;flex:1}
+  .body h3{font-size:20px;margin:0 0 8px;letter-spacing:-.01em}
+  .body p{font-size:14.5px;color:var(--muted);line-height:1.6;margin:0 0 20px;flex:1}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;background:var(--primary);color:#fff;font-weight:600;font-size:14.5px;padding:11px 20px;border-radius:999px;text-decoration:none;transition:background .2s ease,transform .2s ease}
+  .btn:hover{background:var(--primary-d);transform:translateY(-1px)}
+  .foot{margin-top:40px;font-size:13px;color:var(--muted);text-align:center}
 </style>
 </head>
 <body>
+  <div class="wrap">
+    <span class="eyebrow">HexP · Homepage</span>
+    <h1>Which version do you want to look at?</h1>
+    <p class="sub">Two versions of the homepage, same content everywhere else — the only difference is the hero section's visual treatment. Click through to compare.</p>
 
-<div class="topbar"><div class="wrap">
-  <div class="brand">HexP · Brand Direction</div>
-  <nav><a href="#comparison">Comparison</a><a href="#style1">Style 1 · Warm</a><a href="#style1v2">Style 1 · v2</a><a href="#style2">Style 2 · Modern</a><a href="#techademy">Site palette</a></nav>
-</div></div>
-
-<header class="hero"><div class="wrap">
-  <div class="kick">Techademy · HexP</div>
-  <h1>Two brand directions</h1>
-  <p>The same strategy, two visual routes. Compare them at a glance, then scroll each direction's identity and its live site. Built to present.</p>
-</div></header>
-
-<section id="comparison"><div class="wrap">
-  <div class="sec-h">At a glance</div>
-  <table class="cmp">
-    <thead><tr>
-      <th>Criteria</th>
-      <th class="s"><span class="nm">Style 1 — Warm / Brick</span><span class="who">For heritage & aspirational institutions; broad appeal</span></th>
-      <th class="s"><span class="nm">Style 2 — Modern / Blue</span><span class="who">For challenger & tech-forward institutions</span></th>
-    </tr></thead>
-    <tbody>
-      <tr><td class="crit">Stands out vs competition</td>
-        <td><span class="lvl high">High</span><span class="note">Anti-blue, unmistakable on a vendor floor</span></td>
-        <td><span class="lvl med">Medium</span><span class="note">Blue is the category norm; wins on polish, not colour</span></td></tr>
-      <tr><td class="crit">Familiarity / reassurance</td>
-        <td><span class="lvl med">Medium</span><span class="note">Warmth is unexpected for the category</span></td>
-        <td><span class="lvl high">High</span><span class="note">Blue is exactly what ERP buyers expect</span></td></tr>
-      <tr><td class="crit">Trust & credibility</td>
-        <td><span class="lvl high">High</span><span class="note">Heritage warmth + near-black rigour</span></td>
-        <td><span class="lvl high">High</span><span class="note">Conventional enterprise-grade trust</span></td></tr>
-      <tr><td class="crit">Distinctiveness / memorability</td>
-        <td><span class="lvl high">High</span><span class="note">Ownable; hard to confuse with anyone</span></td>
-        <td><span class="lvl med">Medium</span><span class="note">Refined, but blue-led looks familiar</span></td></tr>
-      <tr><td class="crit">Human warmth / emotion</td>
-        <td><span class="lvl high">High</span><span class="note">Approachable, less intimidating to sit in front of</span></td>
-        <td><span class="lvl med">Medium</span><span class="note">Clean and capable, cooler in tone</span></td></tr>
-      <tr><td class="crit">Modern-tech signal</td>
-        <td><span class="lvl med">Medium</span><span class="note">Reads established more than cutting-edge</span></td>
-        <td><span class="lvl high">High</span><span class="note">Signals current, well-built software</span></td></tr>
-      <tr><td class="crit">Ageing / longevity</td>
-        <td><span class="lvl high">High</span><span class="note">Warm classic; ages slowly</span></td>
-        <td><span class="lvl med">Medium</span><span class="note">Bright-modern dates faster</span></td></tr>
-      <tr><td class="crit">Risk with conservative buyers</td>
-        <td><span class="lvl med">Medium</span><span class="note">Less familiar — needs confident delivery</span></td>
-        <td><span class="lvl low">Low</span><span class="note">Safe, expected, low friction</span></td></tr>
-      <tr><td class="crit">Scalability into product</td>
-        <td><span class="lvl flag">Needs exploration</span><span class="note">Terracotta vs status-colour semantics; likely white ground in-app; warm character recedes in dense UI</span></td>
-        <td><span class="lvl high">High</span><span class="note">Blue is the native product-UI accent; scales cleanly into dense screens & states</span></td></tr>
-    </tbody>
-  </table>
-</div></section>
-
-<section id="style1" class="style" style="background:var(--bg2)"><div class="wrap">
-  <div class="lead"><h2>Style 1 — Warm / Brick</h2><span class="tag">Terracotta · Bilena · hand-drawn</span></div>
-  <div class="why">
-    <div class="b"><b>Human-first</b> — the software exists to help people, not just automate processes.</div>
-    <div class="b"><b>Established & dependable</b> — a platform universities can rely on for years.</div>
-    <div class="b"><b>Institutional warmth</b> — more welcoming than the cold, corporate feel of blue-heavy competitors.</div>
-    <div class="b"><b>Quiet confidence</b> — doesn't scream "startup"; a mature platform that understands how universities operate.</div>
-  </div>
-
-  <div class="block"><div class="lbl">Colours</div>
-    <div class="grp"><div class="gl">Primary <span>— signature action &amp; brand colour</span></div><div class="sw-row">
-      <div class="sw"><div class="chip" style="background:#A9451F"></div><div class="n">Terracotta</div><div class="h">#A9451F</div><div class="role">Buttons · statement · brand</div></div>
-    </div></div>
-    <div class="grp"><div class="gl">Neutrals <span>— foundation</span></div><div class="sw-row">
-      <div class="sw"><div class="chip" style="background:#FBF9F2"></div><div class="n">Warm ground</div><div class="h">#FBF9F2</div></div>
-      <div class="sw"><div class="chip" style="background:#1A1A1A"></div><div class="n">Ink</div><div class="h">#1A1A1A</div><div class="role">Text &amp; structure</div></div>
-    </div></div>
-    <div class="grp"><div class="gl">Secondary <span>— muted accents, each with a light tint; mapped to modules &amp; status</span></div><div class="sw-row">
-      <div class="sw"><div class="chip" style="background:linear-gradient(#9CBFA0 58%,#DDE2D3 58%)"></div><div class="n">Sage</div><div class="h">#9CBFA0 · #DDE2D3</div><div class="role">Compliance · ready</div></div>
-      <div class="sw"><div class="chip" style="background:linear-gradient(#D9A874 58%,#EBD8C6 58%)"></div><div class="n">Clay</div><div class="h">#D9A874 · #EBD8C6</div><div class="role">In progress</div></div>
-      <div class="sw"><div class="chip" style="background:linear-gradient(#D89B92 58%,#EAD2CC 58%)"></div><div class="n">Rose</div><div class="h">#D89B92 · #EAD2CC</div><div class="role">At-risk</div></div>
-      <div class="sw"><div class="chip" style="background:linear-gradient(#8FA7C6 58%,#D6DEE8 58%)"></div><div class="n">Blue</div><div class="h">#8FA7C6 · #D6DEE8</div><div class="role">Data · AI</div></div>
-    </div></div>
-  </div>
-
-  <div class="block"><div class="lbl">Typography</div>
-    <div class="type-card">
-      <div class="big" style="font-family:'Bilena',Georgia,serif">One system, from admission to placement.</div>
-      <div class="meta">Bilena — old-style serif, headlines</div>
-      <div class="body">Inter carries all body copy and product UI — the clean, legible workhorse ERP buyers already trust.</div>
-      <div class="meta" style="margin-top:6px">Inter — body & UI</div>
-    </div>
-  </div>
-
-  <div class="block"><div class="lbl">Illustration</div>
-    <div style="border:1px solid var(--line);border-radius:14px;padding:20px;background:#A9451F;max-width:520px">
-      <img src="illustration%20test.svg" alt="Loose hand-drawn illustration" style="display:block;width:100%;height:auto">
-    </div>
-    <div class="hint">Loose, hand-drawn ink line · dignified scenes · sits on the terracotta.</div>
-  </div>
-
-  <div class="block"><div class="lbl">Icons</div>
-    <div class="ico-row">
-      <div class="ic"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#12B265" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M12 3 L20 6 V12 C20 17 12 21 12 21 C12 21 4 17 4 12 V6 Z" fill="#DDEFE2"/><path d="M8.5 12 L11 14.5 L16 8.5"/></svg></div>
-      <div class="ic"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#B5771C" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M12 3 L21 7 L12 11 L3 7 Z" fill="#F2E1C6"/><path d="M6.5 9 V15 C6.5 16.5 17.5 16.5 17.5 15 V9"/></svg></div>
-      <div class="ic"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#4E6E96" stroke-width="1.8"><circle cx="12" cy="12" r="9" fill="#DDE6F0"/><text x="12" y="16" text-anchor="middle" font-family="Georgia,serif" font-size="12" stroke="none" fill="#33455C">&#8377;</text></svg></div>
-      <div class="ic"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#B5556B" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M12 2 L14 9 L21 12 L14 15 L12 22 L10 15 L3 12 L10 9 Z" fill="#F3DDE2"/></svg></div>
-    </div>
-    <div class="hint">Soft hand-drawn line + one accent fill · colour mapped to category.</div>
-  </div>
-
-  <div class="block"><div class="lbl">Patterns &amp; textures</div><div class="tex-row">
-    <div class="tex-t"><div class="box" style="background-color:#FBF9F2;background-image:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%22120%22%3E%3Cfilter id=%22g%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%222%22/%3E%3CfeColorMatrix type=%22saturate%22 values=%220%22/%3E%3C/filter%3E%3Crect width=%22120%22 height=%22120%22 filter=%22url(%23g)%22 opacity=%220.5%22/%3E%3C/svg%3E');background-size:120px"></div><div class="cap">Warm grain</div><div class="d">Tactile depth on flat colour</div></div>
-    <div class="tex-t"><div class="box" style="background:#FBF9F2"><svg viewBox="0 0 200 110" preserveAspectRatio="none"><g fill="none" stroke="#A9451F" stroke-opacity="0.4" stroke-width="2.5"><path d="M-5 16 C 95 16, 155 55, 205 55"/><path d="M-5 42 C 95 42, 155 55, 205 55"/><path d="M-5 68 C 95 68, 155 55, 205 55"/><path d="M-5 94 C 95 94, 155 55, 205 55"/></g></svg></div><div class="cap">Convergence</div><div class="d">Many lines into one point — flat, or as rays on cards</div></div>
-  </div><div class="hint">Grain broadly · expressive textures on statement moments · never on product/data.</div></div>
-
-  <div class="block"><div class="lbl">Live site — v1 · Bilena headlines</div>
-    <div class="site">
-      <div class="bar"><div class="dots"><span></span><span></span><span></span></div><div class="u">hexp.edu — Style 1 · v1 (Bilena)</div><a href="HexP_landing_with_dashboard.html" target="_blank">Open full page ↗</a></div>
-      <iframe src="HexP_landing_with_dashboard.html" title="Style 1 v1 site" loading="lazy"></iframe>
-    </div>
-    <div class="hint">The original — Bilena old-style serif on headlines. Scroll inside the frame, or open the full page.</div>
-  </div>
-
-  <div class="block" id="style1v2"><div class="lbl">Live site — v2 · Georgia headlines</div>
-    <div class="site">
-      <div class="bar"><div class="dots"><span></span><span></span><span></span></div><div class="u">hexp.edu — Style 1 · v2 (Georgia)</div><a href="HexP_landing_style1_v2.html" target="_blank">Open full page ↗</a></div>
-      <iframe src="HexP_landing_style1_v2.html" title="Style 1 v2 site" loading="lazy"></iframe>
-    </div>
-    <div class="hint">Same system, headlines set in Georgia at a single 400 weight — a familiar, system-safe serif to compare against Bilena.</div>
-  </div>
-</div></section>
-
-<section id="style2" class="style"><div class="wrap">
-  <div class="lead"><h2>Style 2 — Modern / Blue</h2><span class="tag">Electric blue · Inter · photography</span></div>
-  <div class="why">
-    <div class="b"><b>Instantly familiar</b> — speaks the visual language buyers already trust in enterprise software.</div>
-    <div class="b"><b>Credible & low-risk</b> — feels proven and safe for a cautious decision-maker.</div>
-    <div class="b"><b>Modern & capable</b> — signals a current, well-built, tech-forward platform.</div>
-    <div class="b"><b>Scales into the product</b> — drops straight into dense app UI with almost no friction.</div>
-  </div>
-
-  <div class="block"><div class="lbl">Colours</div>
-    <div class="grp"><div class="gl">Primary <span>— buttons, links &amp; active states</span></div><div class="sw-row">
-      <div class="sw"><div class="chip" style="background:#2E5AF0"></div><div class="n">Electric blue</div><div class="h">#2E5AF0</div><div class="role">The single action colour</div></div>
-    </div></div>
-    <div class="grp"><div class="gl">Neutrals <span>— foundation</span></div><div class="sw-row">
-      <div class="sw"><div class="chip" style="background:#FFFFFF"></div><div class="n">White ground</div><div class="h">#FFFFFF</div></div>
-      <div class="sw"><div class="chip" style="background:#0F1319"></div><div class="n">Ink</div><div class="h">#0F1319</div><div class="role">Text</div></div>
-    </div></div>
-    <div class="grp"><div class="gl">Secondary <span>— bright accents, each with a light tint for chips &amp; status fills (used sparingly)</span></div><div class="sw-row">
-      <div class="sw"><div class="chip" style="background:linear-gradient(#F5327F 58%,#FDDCEB 58%)"></div><div class="n">Pink</div><div class="h">#F5327F · #FDDCEB</div></div>
-      <div class="sw"><div class="chip" style="background:linear-gradient(#7B4DF0 58%,#EBE1FF 58%)"></div><div class="n">Lavender</div><div class="h">#7B4DF0 · #EBE1FF</div></div>
-      <div class="sw"><div class="chip" style="background:linear-gradient(#E9A400 58%,#FBEEC2 58%)"></div><div class="n">Yellow</div><div class="h">#E9A400 · #FBEEC2</div></div>
-      <div class="sw"><div class="chip" style="background:linear-gradient(#12B265 58%,#D4F4E1 58%)"></div><div class="n">Green</div><div class="h">#12B265 · #D4F4E1</div></div>
-      <div class="sw"><div class="chip" style="background:linear-gradient(#F57A18 58%,#FDE6CF 58%)"></div><div class="n">Orange</div><div class="h">#F57A18 · #FDE6CF</div></div>
-    </div></div>
-  </div>
-
-  <div class="block"><div class="lbl">Typography</div>
-    <div class="type-card">
-      <div class="big" style="font-family:'Inter',sans-serif;font-weight:600;letter-spacing:-.03em">One system. Complete visibility.</div>
-      <div class="meta">Inter — clean grotesque, headlines & UI</div>
-      <div class="body">A single neutral sans across the whole system — sharp, legible, and unmistakably "modern software."</div>
-    </div>
-  </div>
-
-  <div class="block"><div class="lbl">Imagery</div>
-    <div style="display:grid;grid-template-columns:1.45fr 1fr;gap:14px;align-items:stretch">
-      <div style="grid-row:span 2;min-height:320px;border-radius:14px;border:1px solid var(--line);overflow:hidden;background:#3E6BF5 url('assets/classroom.jpg') center/cover"></div>
-      <div style="border:1px solid var(--line);border-radius:14px;background:#fff;padding:18px 20px">
-        <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9AA0AB;margin-bottom:8px">Placement cell · product UI</div>
-        <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;padding:9px 0;border-top:1px solid var(--line)"><span>Aarav Menon → Infosys</span><span style="font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;background:#D4F4E1;color:#12B265">Matched</span></div>
-        <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;padding:9px 0;border-top:1px solid var(--line)"><span>Priya Sharma → Deloitte</span><span style="font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;background:#FDE6CF;color:#F57A18">Interview</span></div>
-        <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;padding:9px 0;border-top:1px solid var(--line)"><span>Rohan Iyer → TCS</span><span style="font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;background:#EBE1FF;color:#7B4DF0">Shortlisted</span></div>
+    <div class="grid">
+      <div class="card">
+        <div class="thumb v1">
+          <span class="tag">Version 1</span>
+          <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+            <g opacity="0.9">
+              <path d="M40 30 Q70 100 40 170" fill="none" stroke="#6B26D9" stroke-width="3" opacity=".35"/>
+              <path d="M55 20 Q95 100 55 180" fill="none" stroke="#8B5CF6" stroke-width="3" opacity=".3"/>
+              <path d="M360 30 Q330 100 360 170" fill="none" stroke="#6B26D9" stroke-width="3" opacity=".35"/>
+              <path d="M345 20 Q305 100 345 180" fill="none" stroke="#8B5CF6" stroke-width="3" opacity=".3"/>
+            </g>
+            <rect x="120" y="80" width="160" height="16" rx="8" fill="#0F1319" opacity=".85"/>
+            <rect x="150" y="106" width="100" height="10" rx="5" fill="#0F1319" opacity=".35"/>
+            <rect x="168" y="128" width="64" height="22" rx="11" fill="#6B26D9"/>
+          </svg>
+        </div>
+        <div class="body">
+          <h3>Original hero</h3>
+          <p>Mirrored abstract illustration flanking the headline, with a one-time reveal wipe and an ambient shine sweep.</p>
+          <a class="btn" href="HexP_landing_techademy.html">View version 1 →</a>
+        </div>
       </div>
-      <div style="border:1px solid var(--line);border-radius:14px;background:#fff;padding:18px 20px">
-        <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9AA0AB;margin-bottom:8px">Compliance tracker · product UI</div>
-        <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;padding:9px 0;border-top:1px solid var(--line)"><span>NAAC — Criteria 2</span><span style="font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;background:#D4F4E1;color:#12B265">Ready</span></div>
-        <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;padding:9px 0;border-top:1px solid var(--line)"><span>NBA — Program outcomes</span><span style="font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;background:#D4F4E1;color:#12B265">Ready</span></div>
-        <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;padding:9px 0;border-top:1px solid var(--line)"><span>NIRF — Perception data</span><span style="font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;background:#FDE6CF;color:#F57A18">In progress</span></div>
+
+      <div class="card">
+        <div class="thumb v2">
+          <span class="tag">Version 2</span>
+          <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+            <g fill="none" stroke-linecap="round" opacity="0.9">
+              <path d="M20 40 C140 40,165 96,192 98" stroke="#6B26D9" stroke-width="5"/>
+              <path d="M20 90 C140 90,170 99,192 99" stroke="#6B26D9" stroke-width="4.2"/>
+              <path d="M20 150 C140 150,165 102,192 101" stroke="#6B26D9" stroke-width="5"/>
+              <path d="M380 40 C260 40,235 96,208 98" stroke="#2563EB" stroke-width="5"/>
+              <path d="M380 90 C260 90,230 99,208 99" stroke="#2563EB" stroke-width="4.2"/>
+              <path d="M380 150 C260 150,235 102,208 101" stroke="#2563EB" stroke-width="5"/>
+            </g>
+            <circle cx="200" cy="100" r="26" fill="#6B26D9"/>
+            <text x="200" y="105" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="12" font-weight="700" fill="#fff">HexP</text>
+          </svg>
+        </div>
+        <div class="body">
+          <h3>Bowtie network hero</h3>
+          <p>Every university system (admissions, fees, compliance, faculty) converging through HexP, fanning out into outcomes — inspired by the bottleneck-diagram concept you shared.</p>
+          <a class="btn" href="HexP_landing_v2.html">View version 2 →</a>
+        </div>
       </div>
     </div>
-    <div class="hint">Real campus &amp; faculty photography, paired with crisp product-UI screenshots — never illustration. Only <b>classroom.jpg</b> is on disk; drop more photos into <b>/assets</b> and I'll add them.</div>
+
+    <div class="foot">Rest of the page — Problem section, features, trust strip, network explorer, CTA — is identical in both.</div>
   </div>
-
-  <div class="block"><div class="lbl">Icons</div>
-    <div class="ico-row">
-      <div class="ic"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#12B265" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M12 3 L20 6 V12 C20 17 12 21 12 21 C12 21 4 17 4 12 V6 Z"/><path d="M8.5 12 L11 14.5 L16 8.5"/></svg></div>
-      <div class="ic"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#2E5AF0" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M12 3 L21 7 L12 11 L3 7 Z"/><path d="M6.5 9 V15 C6.5 16.5 17.5 16.5 17.5 15 V9"/></svg></div>
-      <div class="ic"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#F57A18" stroke-width="2"><circle cx="12" cy="12" r="9"/><text x="12" y="16" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" stroke="none" fill="#F57A18">&#8377;</text></svg></div>
-      <div class="ic"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#7B4DF0" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M12 2 L14 9 L21 12 L14 15 L12 22 L10 15 L3 12 L10 9 Z"/></svg></div>
-    </div>
-    <div class="hint">Crisp geometric line icons · accent-coloured.</div>
-  </div>
-
-  <div class="block"><div class="lbl">Patterns &amp; textures</div><div class="tex-row">
-    <div class="tex-t"><div class="box" style="background:#FFFFFF"><div style="position:absolute;inset:0;background-image:radial-gradient(#2E5AF0 1.4px, transparent 1.6px);background-size:12px 12px;-webkit-mask-image:linear-gradient(180deg,#000,transparent 85%);mask-image:linear-gradient(180deg,#000,transparent 85%)"></div></div><div class="cap">Halftone fade</div><div class="d">Dots fading across the field</div></div>
-    <div class="tex-t"><div class="box" style="background:linear-gradient(150deg,#6E92FF,#2E5AF0)"></div><div class="cap">Vivid gradient</div><div class="d">Light-to-brand blue, statement moments</div></div>
-    <div class="tex-t"><div class="box" style="background:#FFFFFF"><div style="position:absolute;inset:0;background-image:radial-gradient(#C7D0E6 1.4px, transparent 1.6px);background-size:16px 16px"></div></div><div class="cap">Dot grid</div><div class="d">Technical substrate</div></div>
-    <div class="tex-t"><div class="box" style="background:linear-gradient(150deg,#2E5AF0,#7B4DF0)"><div style="position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.5) 1px, transparent 1.3px);background-size:8px 8px;mix-blend-mode:overlay;opacity:.55"></div></div><div class="cap">Grain on colour</div><div class="d">Texture over vivid blocks</div></div>
-  </div><div class="hint">Halftone &amp; grain for depth · gradients on colour moments · flat, crisp product UI.</div></div>
-
-  <div class="block"><div class="lbl">Live site</div>
-    <div class="site">
-      <div class="bar"><div class="dots"><span></span><span></span><span></span></div><div class="u">hexp.edu — Style 2</div><a href="HexP_landing_modern.html" target="_blank">Open full page ↗</a></div>
-      <iframe src="HexP_landing_modern.html" title="Style 2 site" loading="lazy"></iframe>
-    </div>
-    <div class="hint">Scroll inside the frame to explore, or open the full page.</div>
-  </div>
-</div></section>
-
-<section id="techademy" class="style"><div class="wrap">
-  <div class="lead"><h2>Site palette — techademycampus.com</h2><span class="tag">Client-mandated · violet · orange · green · slate</span></div>
-  <div class="why">
-    <div class="b"><b>Constraint, not choice</b> — these are the colours already live on techademycampus.com, so the brand reads consistent with the existing product.</div>
-    <div class="b"><b>Violet-led on white</b> — a modern, tech-forward system: one violet primary, orange for warmth, green for success, slate for everything structural.</div>
-    <div class="b"><b>Expanded, not invented</b> — each base colour gets a light tint and a darker step so it can carry chips, states and hovers without adding new hues.</div>
-    <div class="b"><b>Applied to Style 2</b> — mapped onto the Modern layout, since a violet-on-white palette fits it far better than the warm/heritage direction.</div>
-  </div>
-
-  <div class="block"><div class="lbl">Colours — expanded from the site's base set</div>
-    <div class="grp"><div class="gl">Primary — Violet <span>— the single action colour: buttons, links, active states, focus, key highlights</span></div><div class="sw-row">
-      <div class="sw"><div class="chip" style="background:#6B26D9"></div><div class="n">Violet</div><div class="h">#6B26D9</div><div class="role">Base — actions &amp; links</div></div>
-      <div class="sw"><div class="chip" style="background:#8B5CF6"></div><div class="n">Violet soft</div><div class="h">#8B5CF6</div><div class="role">Secondary emphasis</div></div>
-      <div class="sw"><div class="chip" style="background:#56209F"></div><div class="n">Violet deep</div><div class="h">#56209F</div><div class="role">Hover / pressed</div></div>
-      <div class="sw"><div class="chip" style="background:#EFE7FC"></div><div class="n">Violet light</div><div class="h">#EFE7FC</div><div class="role">Tint — chips &amp; fills</div></div>
-    </div></div>
-    <div class="grp"><div class="gl">Secondary — Orange <span>— warmth, secondary CTAs and warning states (expanded into amber &amp; deep)</span></div><div class="sw-row">
-      <div class="sw"><div class="chip" style="background:linear-gradient(#F97316 58%,#FFEDD5 58%)"></div><div class="n">Orange</div><div class="h">#F97316 · #FFEDD5</div><div class="role">Secondary CTA / badge</div></div>
-      <div class="sw"><div class="chip" style="background:linear-gradient(#D97706 58%,#FEF0D9 58%)"></div><div class="n">Amber</div><div class="h">#D97706 · #FEF0D9</div><div class="role">Warning / in-progress</div></div>
-      <div class="sw"><div class="chip" style="background:linear-gradient(#C2410C 58%,#FCE4D6 58%)"></div><div class="n">Deep orange</div><div class="h">#C2410C · #FCE4D6</div><div class="role">Urgent / high</div></div>
-    </div></div>
-    <div class="grp"><div class="gl">Success — Green <span>— reserved for positive, resolved states only</span></div><div class="sw-row">
-      <div class="sw"><div class="chip" style="background:linear-gradient(#16A249 58%,#DCFCE7 58%)"></div><div class="n">Green</div><div class="h">#16A249 · #DCFCE7</div><div class="role">Ready / matched / cleared</div></div>
-    </div></div>
-    <div class="grp"><div class="gl">Neutrals — Slate <span>— the calm base the colour sits on (~90% of the surface)</span></div><div class="sw-row">
-      <div class="sw"><div class="chip" style="background:#020817"></div><div class="n">Ink</div><div class="h">#020817</div><div class="role">Primary text</div></div>
-      <div class="sw"><div class="chip" style="background:#64748B"></div><div class="n">Slate</div><div class="h">#64748B</div><div class="role">Secondary text</div></div>
-      <div class="sw"><div class="chip" style="background:#94A3B8"></div><div class="n">Faint</div><div class="h">#94A3B8</div><div class="role">Captions / icons</div></div>
-      <div class="sw"><div class="chip" style="background:#E2E8F0"></div><div class="n">Border</div><div class="h">#E2E8F0</div><div class="role">Lines &amp; dividers</div></div>
-      <div class="sw"><div class="chip" style="background:#F1F5F9"></div><div class="n">Muted</div><div class="h">#F1F5F9</div><div class="role">Section fills</div></div>
-      <div class="sw"><div class="chip" style="background:#FFFFFF;box-shadow:inset 0 0 0 1px var(--line)"></div><div class="n">White</div><div class="h">#FFFFFF</div><div class="role">Ground</div></div>
-    </div></div>
-  </div>
-
-  <div class="block"><div class="lbl">How to use it</div>
-    <div class="use">
-      <div class="u"><span class="d" style="background:#6B26D9"></span><div><b>Violet is the one action colour.</b> Buttons, links, active nav, focus rings and the single most important number per view. One violet moment per screen — don't scatter it, or it stops meaning "act here".</div></div>
-      <div class="u"><span class="d" style="background:#F97316"></span><div><b>Orange carries warmth &amp; secondary emphasis.</b> Secondary CTAs, badges and highlights. Amber signals in-progress / warning; deep orange signals urgent / high. Keep it supporting, never competing with violet for the primary action.</div></div>
-      <div class="u"><span class="d" style="background:#16A249"></span><div><b>Green means resolved.</b> Ready, matched, cleared, audit-ready — positive states only. Never decorative, or "success" loses its signal.</div></div>
-      <div class="u"><span class="d" style="background:#64748B"></span><div><b>Slate does the heavy lifting.</b> Ink text on white, slate for secondary copy, border + muted for structure. Roughly 90% of every screen is neutral so the three brand hues stay loud.</div></div>
-      <div class="u"><span class="d" style="background:linear-gradient(135deg,#EFE7FC,#FFEDD5,#DCFCE7)"></span><div><b>Light tints are for fills, never text.</b> Use the light step behind chips, cards and section bands; keep the solid step for the mark, the tint for the surface.</div></div>
-    </div>
-    <div class="hint">One gap to flag: the site palette has no dedicated danger red — we're signalling critical/high with <b>deep orange</b>. If hard error / critical states need a stronger cue, we should confirm adding a red before finalising.</div>
-  </div>
-
-  <div class="block"><div class="lbl">Gradients — moving beyond flat colour</div>
-    <div class="grad-row">
-      <div class="gt"><div class="gband" style="background:linear-gradient(105deg,#6B26D9 0%,#A23A93 50%,#F97316 100%)"></div><div class="n">Brand — purple → orange</div><div class="h">#6B26D9 → #F97316</div><div class="role">Hero &amp; CTA banners, big statement moments</div></div>
-      <div class="gt"><div class="gband" style="background:linear-gradient(150deg,#B79BEA 0%,#6B26D9 100%)"></div><div class="n">Purple — light → brand</div><div class="h">#B79BEA → #6B26D9</div><div class="role">Break bands, dark feature panels</div></div>
-      <div class="gt"><div class="gband" style="background:linear-gradient(150deg,#FDBA74 0%,#F97316 100%)"></div><div class="n">Orange — light → brand</div><div class="h">#FDBA74 → #F97316</div><div class="role">Warm accent bands &amp; highlights</div></div>
-      <div class="gt"><div class="gband" style="background:linear-gradient(155deg,#F4EEFC 0%,#E3D3F7 100%)"></div><div class="n">Tint — soft depth</div><div class="h">light → soft</div><div class="role">Colour cards &amp; chips (keeps dark text)</div></div>
-    </div>
-    <div class="hint">Gradients live on marketing surfaces only — hero, CTA, statement bands and colour cards. Keep product/data UI flat for legibility. Single-hue (light→brand) for calm depth; the purple→orange brand gradient reserved for the biggest moments.</div>
-  </div>
-
-  <div class="block" id="techademysite"><div class="lbl">Live site — Style 2 in the site palette</div>
-    <div class="site">
-      <div class="bar"><div class="dots"><span></span><span></span><span></span></div><div class="u">hexp.edu — techademy palette</div><a href="HexP_landing_techademy.html" target="_blank">Open full page ↗</a></div>
-      <iframe src="HexP_landing_techademy.html" title="Techademy palette site" loading="lazy"></iframe>
-    </div>
-    <div class="hint">The Modern layout, recoloured to the live site's violet · orange · green · slate system.</div>
-  </div>
-</div></section>
-
-<footer><div class="wrap">HexP · brand direction options · for internal review</div></footer>
-
 </body>
 </html>

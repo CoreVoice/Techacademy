@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HexP — Design System v0.2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFFFF; --bg2:#F8FAFC; --card:#FFFFFF;
+
+    /* Neutrals — pure opacity-of-black, no solid greys */
+    --n-900:rgba(0,0,0,.94); --n-800:rgba(0,0,0,.80); --n-700:rgba(0,0,0,.68);
+    --n-600:rgba(0,0,0,.55); --n-500:rgba(0,0,0,.42); --n-400:rgba(0,0,0,.32);
+    --n-300:rgba(0,0,0,.20); --n-200:rgba(0,0,0,.12); --n-100:rgba(0,0,0,.06);
+    --line:var(--n-100);
+
+    /* Purple scale — primary at 500, 8 bands around it */
+    --p-100:#EDE6FA; --p-200:#D6C4F2; --p-300:#B99AE9; --p-400:#9668DE;
+    --p-500:#6B26D9; --p-600:#591CBA; --p-700:#481797; --p-800:#371173; --p-900:#2A0D59;
+
+    /* Orange scale */
+    --o-100:#FDEDE2; --o-200:#FAD6BC; --o-300:#F7B88C; --o-400:#F39553;
+    --o-500:#F97316; --o-600:#E65E00; --o-700:#BD4E00; --o-800:#943D00; --o-900:#763000;
+
+    /* Secondary hues — existing three from Figma + 2 proposed additions */
+    --g-100:#E5FAED; --g-300:#97EDB6; --g-500:#16A249; --g-700:#0A5C28;
+    --r-100:#FCEBE3; --r-300:#F4AD90; --r-500:#C2410C; --r-700:#782604;
+    --a-100:#FDF1E2; --a-300:#F7C68D; --a-500:#D97706; --a-700:#8D4C00;
+    --i-100:#E4EBFB; --i-300:#93B0F1; --i-500:#2563EB; --i-700:#0C40B2;
+    --t-100:#E4FCF9; --t-300:#93F1E9; --t-500:#0D9488; --t-700:#054B44;
+
+    /* Gradients — radial, pure hue, varied arrangement (matches Figma explorations) */
+    --grad-p-a:radial-gradient(135% 120% at 100% 0%, var(--p-300) 0%, var(--p-500) 45%, var(--p-900) 100%);
+    --grad-p-b:radial-gradient(140% 130% at 0% 100%, var(--p-400) 0%, var(--p-700) 55%, var(--p-900) 100%);
+    --grad-p-light:linear-gradient(155deg, var(--p-100) 0%, var(--p-400) 100%);
+    --grad-o-a:radial-gradient(135% 120% at 0% 100%, var(--o-300) 0%, var(--o-500) 45%, var(--o-800) 100%);
+    --grad-o-b:radial-gradient(140% 130% at 100% 0%, var(--o-300) 0%, var(--o-600) 55%, var(--o-800) 100%);
+    --grad-o-light:linear-gradient(150deg, var(--o-100) 0%, var(--o-400) 100%);
+    --grad-g-light:linear-gradient(155deg, var(--g-100) 0%, var(--g-500) 100%);
+    --grad-r-light:linear-gradient(155deg, var(--r-100) 0%, var(--r-500) 100%);
+    --grad-a-light:linear-gradient(155deg, var(--a-100) 0%, var(--a-500) 100%);
+    --grad-i-light:linear-gradient(155deg, var(--i-100) 0%, var(--i-500) 100%);
+    --grad-t-light:linear-gradient(155deg, var(--t-100) 0%, var(--t-500) 100%);
+    --grad-rejected:linear-gradient(105deg,#6B26D9 0%,#A23A93 50%,#F97316 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--n-900);font-family:"Inter",system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6}
+  h1,h2,h3,h4{font-weight:600;letter-spacing:-.022em;line-height:1.08}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+  a{text-decoration:none;color:inherit}
+
+  .grain{position:relative}
+  .grain::after{content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:overlay;opacity:.45;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
+
+  /* --- page chrome --- */
+  .topband{background:var(--n-900);color:#fff;padding:10px 0;font-size:13px}
+  .topband .wrap{display:flex;justify-content:space-between;align-items:center}
+  header.dshdr{padding:56px 0 32px;border-bottom:1px solid var(--line)}
+  header.dshdr h1{font-size:38px}
+  header.dshdr p{color:var(--n-700);font-size:16px;max-width:660px;margin-top:10px}
+  .badge-row{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap}
+  .badge{font-size:12px;font-weight:600;padding:5px 11px;border-radius:999px;background:var(--p-100);color:var(--p-700)}
+  .badge.warn{background:var(--o-100);color:var(--o-700)}
+
+  section.ds{padding:56px 0;border-bottom:1px solid var(--line)}
+  section.ds h2{font-size:24px;margin-bottom:6px}
+  section.ds .sub{color:var(--n-700);font-size:14.5px;margin-bottom:28px;max-width:700px}
+
+  /* --- swatches --- */
+  .grid-sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px}
+  .sw{border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .sw .fill{height:64px}
+  .sw .lbl{padding:8px 10px;font-size:12px}
+  .sw .lbl b{display:block;font-size:12.5px;margin-bottom:1px}
+  .sw .lbl span{color:var(--n-500);font-family:monospace;font-size:10.5px}
+
+  .scale-row{display:flex;gap:0;border-radius:12px;overflow:hidden;border:1px solid var(--line);margin-bottom:10px}
+  .scale-cell{flex:1;min-height:64px;display:flex;align-items:flex-end;padding:6px 8px;font-size:10.5px;font-family:monospace}
+  .scale-name{font-size:13px;font-weight:600;margin:20px 0 8px}
+
+  .grid-grad{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin-top:10px}
+  .gcard{border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .gcard .fill{height:120px}
+  .gcard .lbl{padding:11px 13px}
+  .gcard .lbl b{font-size:13.5px;display:block}
+  .gcard .lbl span{color:var(--n-500);font-size:11.5px;font-family:monospace}
+  .gcard.rejected{border-color:#F3C9C9}
+  .gcard.rejected .lbl{background:#FEF2F2}
+  .gcard.rejected .lbl b{color:#B91C1C}
+  .gcard.rejected .fill{position:relative}
+  .gcard.rejected .fill::after{content:"CLIENT REJECTED";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.35);color:#fff;font-weight:700;font-size:13px;letter-spacing:.06em;text-shadow:0 1px 4px rgba(0,0,0,.5)}
+
+  /* --- type scale --- */
+  .type-row{display:flex;align-items:baseline;gap:22px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .type-row:last-child{border:none}
+  .type-row .meta{width:190px;flex:none;font-size:12.5px;color:var(--n-700)}
+  .type-row .meta b{display:block;color:var(--n-900);font-size:13.5px;margin-bottom:2px}
+  .t-h1{font-size:50px}
+  .t-h2{font-size:40px}
+  .t-h3{font-size:24px}
+  .t-lg{font-size:19px;font-weight:400}
+  .t-body{font-size:16px;font-weight:400}
+  .t-sm{font-size:14.5px;font-weight:500}
+  .t-xs{font-size:12.5px;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+
+  /* --- buttons --- */
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;padding:11px 20px;border-radius:10px;cursor:pointer;border:none;font-family:inherit}
+  .btn-primary{background:var(--p-500);color:#fff}
+  .btn-ghost{background:#fff;color:var(--n-900);border:1px solid var(--line)}
+  .btn-pill{border-radius:999px;padding:10px 20px;font-size:14px}
+  .comp-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center;padding:20px;background:var(--bg2);border-radius:14px;border:1px solid var(--line)}
+
+  /* --- nav sample --- */
+  .navsample{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:16px 24px;background:#fff;border:1px solid var(--line);border-radius:14px}
+  .navsample .brand{font-weight:700;font-size:18px}
+  .navsample .links{display:flex;gap:26px;justify-self:center;font-size:14px;color:var(--n-900)}
+  .navsample .btn{justify-self:end}
+
+  /* --- cards --- */
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:6px}
+  .feat-card{border:1px solid var(--line);border-radius:16px;padding:22px}
+  .feat-card .ic{width:38px;height:38px;border-radius:10px;background:var(--p-100);color:var(--p-500);display:flex;align-items:center;justify-content:center;font-weight:700;margin-bottom:14px}
+  .feat-card h4{font-size:16.5px;margin-bottom:6px}
+  .feat-card p{font-size:13.5px;color:var(--n-700)}
+
+  .risk-card{width:270px;border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff;box-shadow:0 20px 40px -24px rgba(15,19,25,.25)}
+  .risk-card .t{font-size:12.5px;font-weight:700;margin-bottom:10px}
+  .risk-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-top:1px solid var(--line);font-size:12.5px}
+  .risk-row:first-of-type{border-top:none}
+  .pill-tag{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px}
+  .pill-tag.high{background:var(--r-100);color:var(--r-500)}
+  .pill-tag.med{background:var(--a-100);color:var(--a-500)}
+
+  .pillar-card{border-radius:16px;padding:22px;color:var(--n-900)}
+  .pillar-card h4{font-size:16.5px;margin-bottom:6px}
+  .pillar-card p{font-size:13px;color:var(--n-700);margin-bottom:14px}
+  .pillar-stat{display:flex;justify-content:space-between;font-size:12.5px;padding:7px 0;border-top:1px solid rgba(0,0,0,.08)}
+
+  /* --- callout panel --- */
+  .callout{border-radius:20px;overflow:hidden;position:relative;color:#fff;padding:44px;min-height:260px}
+  .callout h3{font-size:24px;max-width:340px;margin-bottom:10px;position:relative;z-index:1}
+  .callout p{font-size:13.5px;opacity:.9;max-width:320px;margin-bottom:18px;position:relative;z-index:1}
+  .callout .btn{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.4);position:relative;z-index:1}
+
+  /* --- photo treatments --- */
+  .photo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+  .photo{height:200px;border-radius:14px;position:relative;overflow:hidden;background:linear-gradient(135deg,#6b6b6b,#3a3a3a,#8a8a8a,#525252);background-size:200% 200%}
+  .photo .cap{position:absolute;bottom:0;left:0;right:0;padding:9px 12px;font-size:11.5px;background:linear-gradient(0deg,rgba(0,0,0,.55),transparent);color:#fff}
+  .photo.dither{filter:contrast(1.05) saturate(1.05)}
+  .photo.duotone{filter:grayscale(1) contrast(1.1)}
+  .photo.duotone::before{content:"";position:absolute;inset:0;background:var(--p-500);mix-blend-mode:color;opacity:.55}
+
+  /* --- connector --- */
+  .connector-demo{border:1px solid var(--line);border-radius:16px;padding:30px;background:var(--bg2);position:relative;height:180px;overflow:hidden}
+
+  .note{font-size:13px;color:var(--n-700);background:var(--bg2);border:1px dashed var(--line);border-radius:10px;padding:12px 16px;margin-top:18px}
+</style>
+</head>
+<body>
+
+<div class="topband"><div class="wrap"><span>HexP — Design System</span><span>Draft v0.2 · neutrals, full scales, radial gradients + grain</span></div></div>
+
+<header class="dshdr">
+  <div class="wrap">
+    <h1>HexP Design System</h1>
+    <p>Foundations and components for the HexP marketing site. v0.2 replaces solid greys with an opacity-based neutral ramp, expands purple/orange into full 100–900 scales, adds two proposed secondary hues, and corrects the gradient family to radial (matching Figma) with a grain overlay.</p>
+    <div class="badge-row">
+      <span class="badge">Figma = source of truth where reachable</span>
+      <span class="badge warn">Mixed purple→orange gradient banned — client rejected it</span>
+    </div>
+  </div>
+</header>
+
+<section class="ds">
+  <div class="wrap">
+    <h2>Neutrals — opacity-based, no solid greys</h2>
+    <p class="sub">Every "off-black" is rgba(0,0,0,X) on the white/light surface. This replaces the old fixed --ink / --muted / --faint hex values entirely — one scale, nine steps, used for text, borders, dot patterns, everything that used to be a grey hex.</p>
+    <div class="grid-sw">
+      <div class="sw"><div class="fill" style="background:var(--n-900)"></div><div class="lbl"><b>n-900</b><span>rgba(0,0,0,.94)</span></div></div>
+      <div class="sw"><div class="fill" style="background:var(--n-800)"></div><div class="lbl"><b>n-800</b><span>rgba(0,0,0,.80)</span></div></div>
+      <div class="sw"><div class="fill" style="background:var(--n-700)"></div><div class="lbl"><b>n-700</b><span>rgba(0,0,0,.68)</span></div></div>
+      <div class="sw"><div class="fill" style="background:var(--n-600)"></div><div class="lbl"><b>n-600</b><span>rgba(0,0,0,.55)</span></div></div>
+      <div class="sw"><div class="fill" style="background:var(--n-500)"></div><div class="lbl"><b>n-500</b><span>rgba(0,0,0,.42)</span></div></div>
+      <div class="sw"><div class="fill" style="background:var(--n-400)"></div><div class="lbl"><b>n-400</b><span>rgba(0,0,0,.32)</span></div></div>
+      <div class="sw"><div class="fill" style="background:var(--n-300)"></div><div class="lbl"><b>n-300</b><span>rgba(0,0,0,.20)</span></div></div>
+      <div class="sw"><div class="fill" style="background:var(--n-200)"></div><div class="lbl"><b>n-200</b><span>rgba(0,0,0,.12)</span></div></div>
+      <div class="sw"><div class="fill" style="background:var(--n-100)"></div><div class="lbl"><b>n-100</b><span>rgba(0,0,0,.06)</span></div></div>
+    </div>
+    <div class="note">n-900 = primary text (was --ink). n-700 = body copy (was --muted). n-400 ≈ old --faint tone. n-100 = hairline borders and the hero dot pattern.</div>
+  </div>
+</section>
+
+<section class="ds">
+  <div class="wrap">
+    <h2>Primary — Purple &amp; Orange scales</h2>
+    <p class="sub">Full 100–900 ramp for both primaries, 500 is the brand value, 8 bands around it with balanced lightness steps (not clustered at either end).</p>
+
+    <div class="scale-name">Purple — primary #6B26D9 at 500</div>
+    <div class="scale-row">
+      <div class="scale-cell" style="background:var(--p-100);color:#3a2a55">100</div>
+      <div class="scale-cell" style="background:var(--p-200);color:#3a2a55">200</div>
+      <div class="scale-cell" style="background:var(--p-300);color:#2a1a45">300</div>
+      <div class="scale-cell" style="background:var(--p-400);color:#fff">400</div>
+      <div class="scale-cell" style="background:var(--p-500);color:#fff">500</div>
+      <div class="scale-cell" style="background:var(--p-600);color:#fff">600</div>
+      <div class="scale-cell" style="background:var(--p-700);color:#fff">700</div>
+      <div class="scale-cell" style="background:var(--p-800);color:#fff">800</div>
+      <div class="scale-cell" style="background:var(--p-900);color:#fff">900</div>
+    </div>
+
+    <div class="scale-name">Orange — primary #F97316 at 500</div>
+    <div class="scale-row">
+      <div class="scale-cell" style="background:var(--o-100);color:#5a3315">100</div>
+      <div class="scale-cell" style="background:var(--o-200);color:#5a3315">200</div>
+      <div class="scale-cell" style="background:var(--o-300);color:#4a2a10">300</div>
+      <div class="scale-cell" style="background:var(--o-400);color:#fff">400</div>
+      <div class="scale-cell" style="background:var(--o-500);color:#fff">500</div>
+      <div class="scale-cell" style="background:var(--o-600);color:#fff">600</div>
+      <div class="scale-cell" style="background:var(--o-700);color:#fff">700</div>
+      <div class="scale-cell" style="background:var(--o-800);color:#fff">800</div>
+      <div class="scale-cell" style="background:var(--o-900);color:#fff">900</div>
+    </div>
+  </div>
+</section>
+
+<section class="ds">
+  <div class="wrap">
+    <h2>Secondary colors</h2>
+    <p class="sub">Green, red and amber came from the Figma risk-level cards. Info (blue) and Teal are proposed additions — most systems need an "info" state and a spare accent beyond risk semantics. Flag if you'd rather I not add these two.</p>
+
+    <div class="scale-name">Green / success (from Figma)</div>
+    <div class="scale-row"><div class="scale-cell" style="background:var(--g-100);color:#0a4a24">100</div><div class="scale-cell" style="background:var(--g-300);color:#0a4a24">300</div><div class="scale-cell" style="background:var(--g-500);color:#fff">500</div><div class="scale-cell" style="background:var(--g-700);color:#fff">700</div><div class="scale-cell" style="background:var(--grad-g-light);color:#0a4a24;flex:2">light gradient</div></div>
+
+    <div class="scale-name">Red / risk-high (from Figma)</div>
+    <div class="scale-row"><div class="scale-cell" style="background:var(--r-100);color:#601c08">100</div><div class="scale-cell" style="background:var(--r-300);color:#601c08">300</div><div class="scale-cell" style="background:var(--r-500);color:#fff">500</div><div class="scale-cell" style="background:var(--r-700);color:#fff">700</div><div class="scale-cell" style="background:var(--grad-r-light);color:#601c08;flex:2">light gradient</div></div>
+
+    <div class="scale-name">Amber / risk-medium (from Figma)</div>
+    <div class="scale-row"><div class="scale-cell" style="background:var(--a-100);color:#5a3a06">100</div><div class="scale-cell" style="background:var(--a-300);color:#5a3a06">300</div><div class="scale-cell" style="background:var(--a-500);color:#fff">500</div><div class="scale-cell" style="background:var(--a-700);color:#fff">700</div><div class="scale-cell" style="background:var(--grad-a-light);color:#5a3a06;flex:2">light gradient</div></div>
+
+    <div class="scale-name">Info / blue — proposed addition</div>
+    <div class="scale-row"><div class="scale-cell" style="background:var(--i-100);color:#0c2a6b">100</div><div class="scale-cell" style="background:var(--i-300);color:#0c2a6b">300</div><div class="scale-cell" style="background:var(--i-500);color:#fff">500</div><div class="scale-cell" style="background:var(--i-700);color:#fff">700</div><div class="scale-cell" style="background:var(--grad-i-light);color:#0c2a6b;flex:2">light gradient</div></div>
+
+    <div class="scale-name">Teal — proposed addition</div>
+    <div class="scale-row"><div class="scale-cell" style="background:var(--t-100);color:#033a34">100</div><div class="scale-cell" style="background:var(--t-300);color:#033a34">300</div><div class="scale-cell" style="background:var(--t-500);color:#fff">500</div><div class="scale-cell" style="background:var(--t-700);color:#fff">700</div><div class="scale-cell" style="background:var(--grad-t-light);color:#033a34;flex:2">light gradient</div></div>
+  </div>
+</section>
+
+<section class="ds">
+  <div class="wrap">
+    <h2>Gradients — radial, grain, no mixing</h2>
+    <p class="sub">Corrected per your note: the Figma exploration gradients are all radial with the light source at a different corner per variant, not linear. A subtle grain/noise overlay sits on top of every gradient panel (see the .grain texture on each swatch below). Pure purple and pure orange only — never blended together.</p>
+    <div class="grid-grad">
+      <div class="gcard"><div class="fill grain" style="background:var(--grad-p-a)"></div><div class="lbl"><b>Purple / Radial A</b><span>light from top-right corner</span></div></div>
+      <div class="gcard"><div class="fill grain" style="background:var(--grad-p-b)"></div><div class="lbl"><b>Purple / Radial B</b><span>light from bottom-left corner</span></div></div>
+      <div class="gcard"><div class="fill" style="background:var(--grad-p-light)"></div><div class="lbl"><b>Purple / Light (linear)</b><span>for tinted panels, no grain needed</span></div></div>
+      <div class="gcard"><div class="fill grain" style="background:var(--grad-o-a)"></div><div class="lbl"><b>Orange / Radial A</b><span>light from bottom-left corner</span></div></div>
+      <div class="gcard"><div class="fill grain" style="background:var(--grad-o-b)"></div><div class="lbl"><b>Orange / Radial B</b><span>light from top-right corner</span></div></div>
+      <div class="gcard"><div class="fill" style="background:var(--grad-o-light)"></div><div class="lbl"><b>Orange / Light (linear)</b><span>for tinted panels, no grain needed</span></div></div>
+      <div class="gcard rejected"><div class="fill" style="background:var(--grad-rejected)"></div><div class="lbl"><b>Mixed purple→orange</b><span>Do not use — kept for reference only</span></div></div>
+    </div>
+    <div class="note">Read visually off a 3579px Figma export, not pixel-sampled — worth a dev-mode inspector check on exact color stops and grain frequency/opacity before this is fully locked.</div>
+  </div>
+</section>
+
+<section class="ds">
+  <div class="wrap">
+    <h2>Typography</h2>
+    <p class="sub">Inter, 400/500/600/700. H3 and below are estimates pending exact values from Figma dev mode.</p>
+    <div class="type-row"><div class="meta"><b>H1</b>50px / 600 / -2.2% tracking</div><div class="t-h1">Transforming How Universities Run</div></div>
+    <div class="type-row"><div class="meta"><b>H2</b>40px / 600</div><div class="t-h2">From application to placement</div></div>
+    <div class="type-row"><div class="meta"><b>H3</b>≈24px / 600 — to confirm</div><div class="t-h3">Compliance that keeps itself current</div></div>
+    <div class="type-row"><div class="meta"><b>Body / Large</b>19px / 400</div><div class="t-lg">This is the beginning of better.</div></div>
+    <div class="type-row"><div class="meta"><b>Body</b>16px / 400</div><div class="t-body">Every function on one connected system.</div></div>
+    <div class="type-row"><div class="meta"><b>Small / Nav</b>14.5px / 500</div><div class="t-sm">Products · Applications · About Us</div></div>
+    <div class="type-row"><div class="meta"><b>Micro / Label</b>12.5px / 600 / uppercase</div><div class="t-xs">At-risk detection</div></div>
+  </div>
+</section>
+
+<section class="ds">
+  <div class="wrap">
+    <h2>Buttons</h2>
+    <div class="comp-row">
+      <a class="btn btn-primary">Book a demo</a>
+      <a class="btn btn-ghost">Learn more</a>
+      <a class="btn btn-primary btn-pill">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<section class="ds">
+  <div class="wrap">
+    <h2>Navigation</h2>
+    <p class="sub">Floating bar per Figma reference — inset from the viewport edges with rounded corners and shadow. Not yet applied to the coded page.</p>
+    <div class="navsample" style="box-shadow:0 12px 34px -14px rgba(15,19,25,.16)">
+      <div class="brand"><span style="color:#020817">H</span><span style="color:var(--p-500)">E</span><span style="color:var(--o-500)">X</span><span style="color:var(--p-500)">P</span></div>
+      <div class="links"><span>Products ⌄</span><span>Applications</span><span>About Us</span><span>Resources ⌄</span></div>
+      <a class="btn btn-primary btn-pill">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<section class="ds">
+  <div class="wrap">
+    <h2>Cards</h2>
+    <div class="card-grid">
+      <div class="feat-card">
+        <div class="ic">✓</div>
+        <h4>Compliance that keeps itself current</h4>
+        <p>Every mandate tracked, every document realigned automatically.</p>
+      </div>
+      <div class="feat-card">
+        <div class="ic" style="background:var(--o-100);color:var(--o-500)">◎</div>
+        <h4>Placements, built in</h4>
+        <p>The gradebook feeds placement directly — no manual handoff.</p>
+      </div>
+      <div class="feat-card">
+        <div class="ic" style="background:var(--g-100);color:var(--g-500)">⚠</div>
+        <h4>Spot at-risk students early</h4>
+        <p>The AI layer scores every student weeks before it's a crisis.</p>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:20px;flex-wrap:wrap;margin-top:24px">
+      <div class="risk-card">
+        <div class="t">At-risk detection</div>
+        <div class="risk-row"><span>Aarav Menon · attendance ↓</span><span class="pill-tag high">High</span></div>
+        <div class="risk-row"><span>Neha Gupta · grades ↓</span><span class="pill-tag med">Medium</span></div>
+      </div>
+
+      <div class="pillar-card" style="background:var(--p-100)">
+        <h4>Admissions &amp; fees</h4>
+        <p>Applications, scholarships and fee status in one view.</p>
+        <div class="pillar-stat"><span>Applications</span><b>4,812</b></div>
+        <div class="pillar-stat"><span>Fees cleared</span><b>91%</b></div>
+      </div>
+      <div class="pillar-card" style="background:var(--g-100)">
+        <h4>Academics &amp; compliance</h4>
+        <p>Outcomes, accreditation and faculty load, aligned.</p>
+        <div class="pillar-stat"><span>NAAC readiness</span><b>96%</b></div>
+        <div class="pillar-stat"><span>Outcomes mapped</span><b>1,204</b></div>
+      </div>
+      <div class="pillar-card" style="background:var(--o-100)">
+        <h4>Placements &amp; alumni</h4>
+        <p>The gradebook feeds placement directly, then keeps alumni close.</p>
+        <div class="pillar-stat"><span>Placed</span><b>78%</b></div>
+        <div class="pillar-stat"><span>Companies</span><b>214</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds">
+  <div class="wrap">
+    <h2>Wavy connector</h2>
+    <p class="sub">The S-curve line that runs from the at-risk card into the callout photo — present in all 3 Figma variants ("Vector 264"), not previously documented. Single stroke color only (white on colored panels, purple on light panels) — no gradient stroke, keeps the no-mixing rule intact.</p>
+    <div class="connector-demo">
+      <svg width="100%" height="100%" viewBox="0 0 400 140" preserveAspectRatio="none" style="position:absolute;inset:0">
+        <path d="M20 20 C 140 20, 120 120, 260 90 S 380 40, 380 40" fill="none" stroke="var(--p-500)" stroke-width="2.5" stroke-linecap="round" opacity=".55"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="ds">
+  <div class="wrap">
+    <h2>Photo treatment</h2>
+    <p class="sub">Two distinct treatments seen in Figma — callout-section photos carry a dither/grain texture in full color; the closing CTA photo is desaturated with a light tint of the panel's background color laid over it (duotone). Placeholders below since the real photography isn't in this file yet — apply the same filter stack to actual images.</p>
+    <div class="photo-grid">
+      <div class="photo dither grain"><div class="cap">Dither / grain — callout section</div></div>
+      <div class="photo duotone"><div class="cap">B&amp;W + purple tint — closing CTA</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ds">
+  <div class="wrap">
+    <h2>Callout / quote panel</h2>
+    <p class="sub">"Running a university shouldn't feel like fighting fires every semester." Using Purple Radial A as default — swap the background var to try Radial B or an orange variant.</p>
+    <div class="callout grain" style="background:var(--grad-p-a)">
+      <h3>Running a university shouldn't feel like fighting fires every semester.</h3>
+      <p>Compliance keeps grinding it down. NEP 2020 is going away at anything, the rules only tighten, replacements are stuck holding a semester with limited stress they need to do so it's up manually anyway.</p>
+      <a class="btn">HexP was built to change that →</a>
+    </div>
+  </div>
+</section>
+
+<section class="ds" style="border-bottom:none">
+  <div class="wrap">
+    <h2>Open questions</h2>
+    <p class="sub">Things this draft is guessing at — need your call before they're locked, or before I touch the live landing page.</p>
+    <div class="note">Gradient color stops and grain frequency/opacity were read visually off a Figma export (couldn't pull exact dev-mode values via the API in this pass) — worth a direct check before final lock.</div>
+    <div class="note" style="margin-top:10px">Two new secondary hues (Info blue, Teal) aren't in the Figma file — confirm you want them added, or tell me to drop them.</div>
+    <div class="note" style="margin-top:10px">H3 size (24px) is still an estimate.</div>
+    <div class="note" style="margin-top:10px">Floating nav documented but not yet applied to the live page.</div>
+  </div>
+</section>
+
+</body>
+</html>

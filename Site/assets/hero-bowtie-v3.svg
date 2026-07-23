@@ -1,0 +1,58 @@
+<svg viewBox="0 0 1200 460" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="hubGrad2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6B26D9"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+    <filter id="softShadow2" x="-60%" y="-60%" width="220%" height="220%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#3A2E75" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+  <g opacity="0.9">
+    <path d="M 159.2 60.0 C 363.7 60.0, 490.0 204.5, 552.0 230.0" fill="none" stroke="#E7E4F5" stroke-width="15.0" stroke-linecap="round"/><path d="M 152.0 147.0 C 360.8 147.0, 490.0 217.6, 552.0 230.0" fill="none" stroke="#E7E4F5" stroke-width="14.4" stroke-linecap="round"/><path d="M 188.0 234.0 C 375.2 234.0, 490.0 230.6, 552.0 230.0" fill="none" stroke="#E7E4F5" stroke-width="13.8" stroke-linecap="round"/><path d="M 188.0 321.0 C 375.2 321.0, 490.0 243.7, 552.0 230.0" fill="none" stroke="#E7E4F5" stroke-width="13.2" stroke-linecap="round"/>
+    <path d="M 648.0 230.0 C 710.0 204.5, 839.2 60.0, 1048.0 60.0" fill="none" stroke="#E7E4F5" stroke-width="15.0" stroke-linecap="round"/><path d="M 648.0 230.0 C 710.0 217.6, 821.9 147.0, 1004.8 147.0" fill="none" stroke="#E7E4F5" stroke-width="14.4" stroke-linecap="round"/><path d="M 648.0 230.0 C 710.0 230.6, 830.6 234.0, 1026.4 234.0" fill="none" stroke="#E7E4F5" stroke-width="13.8" stroke-linecap="round"/><path d="M 648.0 230.0 C 710.0 243.7, 850.7 321.0, 1076.8 321.0" fill="none" stroke="#E7E4F5" stroke-width="13.2" stroke-linecap="round"/>
+  </g>
+  <rect x="546.0" y="208.0" width="108" height="44" rx="14" fill="url(#hubGrad2)" filter="url(#softShadow2)"/>
+  <text x="600.0" y="236.0" text-anchor="middle" font-family="DM Sans, system-ui, sans-serif" font-size="15" font-weight="800" fill="#fff" letter-spacing="0.02em">HEX P</text>
+  <g>
+    <rect x="24.0" y="41.0" width="121.2" height="38" rx="19" fill="#fff" stroke="#ECECF1" stroke-width="1.2"/>
+    <circle cx="46.0" cy="60.0" r="12.5" fill="#E4EBFB"/>
+    <g transform="translate(38.0,52.0)"><g fill="none" stroke="#2563EB" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><rect x="2" y="3.5" width="14" height="11.5" rx="2"/><path d="M2 7h14M5.5 1.5v3M12.5 1.5v3"/></g></g>
+    <text x="66.0" y="64.2" text-anchor="start" font-family="DM Sans, system-ui, sans-serif" font-size="12.5" font-weight="600" fill="#3A3A44">Timetabling</text>
+  </g><g>
+    <rect x="24.0" y="128.0" width="114.0" height="38" rx="19" fill="#fff" stroke="#ECECF1" stroke-width="1.2"/>
+    <circle cx="46.0" cy="147.0" r="12.5" fill="#E5FAED"/>
+    <g transform="translate(38.0,139.0)"><g fill="none" stroke="#16A249" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M9 1.5 15 4v5.5c0 4-6 7.5-6 7.5s-6-3.5-6-7.5V4z"/><path d="M6 9l2 2 4-4"/></g></g>
+    <text x="66.0" y="151.2" text-anchor="start" font-family="DM Sans, system-ui, sans-serif" font-size="12.5" font-weight="600" fill="#3A3A44">Compliance</text>
+  </g><g>
+    <rect x="24.0" y="215.0" width="150.0" height="38" rx="19" fill="#fff" stroke="#ECECF1" stroke-width="1.2"/>
+    <circle cx="46.0" cy="234.0" r="12.5" fill="#E4EBFB"/>
+    <g transform="translate(38.0,226.0)"><g fill="none" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round"><path d="M4 3h10M4 7h10M4 3c5 0 5 4 0 4H6l6 6"/></g></g>
+    <text x="66.0" y="238.2" text-anchor="start" font-family="DM Sans, system-ui, sans-serif" font-size="12.5" font-weight="600" fill="#3A3A44">Fee eligibility</text>
+  </g><g>
+    <rect x="24.0" y="302.0" width="150.0" height="38" rx="19" fill="#fff" stroke="#ECECF1" stroke-width="1.2"/>
+    <circle cx="46.0" cy="321.0" r="12.5" fill="#EDE9FE"/>
+    <g transform="translate(38.0,313.0)"><g fill="none" stroke="#8B5CF6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="7.2"/><path d="M9 4.8V9l3 2"/></g></g>
+    <text x="66.0" y="325.2" text-anchor="start" font-family="DM Sans, system-ui, sans-serif" font-size="12.5" font-weight="600" fill="#3A3A44">Exam scheduling</text>
+  </g><g>
+    <rect x="1062.0" y="41.0" width="114.0" height="38" rx="19" fill="#fff" stroke="#ECECF1" stroke-width="1.2"/>
+    <circle cx="1154.0" cy="60.0" r="12.5" fill="#E4EBFB"/>
+    <g transform="translate(1146.0,52.0)"><g fill="none" stroke="#2563EB" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M9 2 1 6l8 4 8-4Z"/><path d="M4.5 8v4c0 1.2 2 2.2 4.5 2.2s4.5-1 4.5-2.2V8"/></g></g>
+    <text x="1134.0" y="64.2" text-anchor="end" font-family="DM Sans, system-ui, sans-serif" font-size="12.5" font-weight="600" fill="#3A3A44">Placements</text>
+  </g><g>
+    <rect x="1018.8" y="128.0" width="157.2" height="38" rx="19" fill="#fff" stroke="#ECECF1" stroke-width="1.2"/>
+    <circle cx="1154.0" cy="147.0" r="12.5" fill="#FCE7F3"/>
+    <g transform="translate(1146.0,139.0)"><g fill="none" stroke="#DB2777" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M9 2 16.5 15.5h-15Z"/><path d="M9 7.4V11"/><path d="M9 13.2v.2"/></g></g>
+    <text x="1134.0" y="151.2" text-anchor="end" font-family="DM Sans, system-ui, sans-serif" font-size="12.5" font-weight="600" fill="#3A3A44">At-risk students</text>
+  </g><g>
+    <rect x="1040.4" y="215.0" width="135.60000000000002" height="38" rx="19" fill="#fff" stroke="#ECECF1" stroke-width="1.2"/>
+    <circle cx="1154.0" cy="234.0" r="12.5" fill="#E5FAED"/>
+    <g transform="translate(1146.0,226.0)"><g fill="none" stroke="#16A249" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><circle cx="9" cy="7" r="5.2"/><path d="M6 11.5 4.8 16 9 14l4.2 2-1.2-4.5"/><path d="M6.6 6.7 8.2 8.3 11.6 4.9"/></g></g>
+    <text x="1134.0" y="238.2" text-anchor="end" font-family="DM Sans, system-ui, sans-serif" font-size="12.5" font-weight="600" fill="#3A3A44">Accreditation</text>
+  </g><g>
+    <rect x="1090.8" y="302.0" width="85.2" height="38" rx="19" fill="#fff" stroke="#ECECF1" stroke-width="1.2"/>
+    <circle cx="1154.0" cy="321.0" r="12.5" fill="#FFEDD5"/>
+    <g transform="translate(1146.0,313.0)"><g fill="none" stroke="#F97316" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="6" r="3.2"/><path d="M2.8 16c0-3.6 2.7-6.2 6.2-6.2s6.2 2.6 6.2 6.2"/></g></g>
+    <text x="1134.0" y="325.2" text-anchor="end" font-family="DM Sans, system-ui, sans-serif" font-size="12.5" font-weight="600" fill="#3A3A44">Alumni</text>
+  </g>
+</svg>

@@ -1,0 +1,91 @@
+<svg viewBox="0 0 1200 520" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="ring0" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ringCore" cx="42%" cy="38%" r="65%">
+      <stop offset="0%" stop-color="#D4BFF5"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </radialGradient>
+    <filter id="softShadow2" x="-60%" y="-60%" width="220%" height="220%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#3A2E75" flood-opacity="0.22"/>
+    </filter>
+    <filter id="dotGlow" x="-150%" y="-150%" width="400%" height="400%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <style>
+    @keyframes flowPulse{
+      0%{offset-distance:0%;opacity:0;transform:scale(.6)}
+      12%{opacity:1;transform:scale(1)}
+      88%{opacity:1;transform:scale(1)}
+      100%{offset-distance:100%;opacity:0;transform:scale(.6)}
+    }
+    .pulse-dot{animation:flowPulse 2.6s linear infinite;filter:url(#dotGlow)}
+    @media (prefers-reduced-motion: reduce){ .pulse-dot{animation:none;opacity:0} }
+  </style>
+  <g opacity="0.9">
+    <path d="M 184.2 53.0 C 376.1 53.0, 496.0 235.2, 536.0 260.0" fill="none" stroke="#E7E4F5" stroke-width="15.0" stroke-linecap="round"/><path d="M 193.6 161.8 C 379.8 161.8, 496.0 248.2, 536.0 260.0" fill="none" stroke="#E7E4F5" stroke-width="14.5" stroke-linecap="round"/><path d="M 184.2 287.1 C 376.1 287.1, 496.0 263.3, 536.0 260.0" fill="none" stroke="#E7E4F5" stroke-width="14.0" stroke-linecap="round"/><path d="M 231.0 359.8 C 394.8 359.8, 496.0 272.0, 536.0 260.0" fill="none" stroke="#E7E4F5" stroke-width="13.5" stroke-linecap="round"/><path d="M 231.0 464.5 C 394.8 464.5, 496.0 284.5, 536.0 260.0" fill="none" stroke="#E7E4F5" stroke-width="13.0" stroke-linecap="round"/><path d="M 1015.8 61.6 C 823.9 61.6, 704.0 236.2, 664.0 260.0" fill="none" stroke="#E7E4F5" stroke-width="15.0" stroke-linecap="round"/><path d="M 959.6 137.8 C 801.5 137.8, 704.0 245.3, 664.0 260.0" fill="none" stroke="#E7E4F5" stroke-width="14.5" stroke-linecap="round"/><path d="M 987.7 260.8 C 812.7 260.8, 704.0 260.1, 664.0 260.0" fill="none" stroke="#E7E4F5" stroke-width="14.0" stroke-linecap="round"/><path d="M 1006.4 370.3 C 820.2 370.3, 704.0 273.2, 664.0 260.0" fill="none" stroke="#E7E4F5" stroke-width="13.5" stroke-linecap="round"/><path d="M 1053.2 480.0 C 838.9 480.0, 704.0 286.4, 664.0 260.0" fill="none" stroke="#E7E4F5" stroke-width="13.0" stroke-linecap="round"/>
+  </g>
+  <circle cx="600" cy="260" r="150" fill="url(#ring0)"/>
+  <circle cx="600" cy="260" r="120" fill="#EDE6FA"/>
+  <circle cx="600" cy="260" r="98" fill="#D6C4F2"/>
+  <circle cx="600" cy="260" r="76" fill="#B99AE9"/>
+  <circle cx="600" cy="260" r="54" fill="#9668DE" filter="url(#softShadow2)"/>
+  <circle cx="600" cy="260" r="40" fill="url(#ringCore)"/>
+  <text x="600" y="267" text-anchor="middle" font-family="DM Sans, system-ui, sans-serif" font-size="17" font-weight="800" fill="#fff" letter-spacing="-0.01em">HexP</text>
+  <g>
+    <rect x="20.0" y="28.3" width="148.2" height="49.4" rx="24.7" fill="#fff" stroke="#ECECF1" stroke-width="1.3"/>
+    <circle cx="43.2" cy="53.0" r="16.2" fill="#EDE6FA"/>
+    <g transform="translate(32.9,42.6) scale(1.156)"><g fill="none" stroke="#6B26D9" stroke-width="1.6" stroke-linejoin="round"><rect x="2" y="2" width="6" height="6" rx="1.2"/><rect x="10" y="2" width="6" height="6" rx="1.2"/><rect x="2" y="10" width="6" height="6" rx="1.2"/><rect x="10" y="10" width="6" height="6" rx="1.2"/></g></g>
+    <text x="68.5" y="58.5" text-anchor="start" font-family="DM Sans, system-ui, sans-serif" font-size="16.2" font-weight="600" fill="#3A3A44">Admissions</text>
+  </g><g>
+    <rect x="20.0" y="137.1" width="157.6" height="49.4" rx="24.7" fill="#fff" stroke="#ECECF1" stroke-width="1.3"/>
+    <circle cx="43.2" cy="161.8" r="16.2" fill="#E4EBFB"/>
+    <g transform="translate(32.9,151.4) scale(1.156)"><g fill="none" stroke="#2563EB" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><rect x="2" y="3.5" width="14" height="11.5" rx="2"/><path d="M2 7h14M5.5 1.5v3M12.5 1.5v3"/></g></g>
+    <text x="68.5" y="167.4" text-anchor="start" font-family="DM Sans, system-ui, sans-serif" font-size="16.2" font-weight="600" fill="#3A3A44">Timetabling</text>
+  </g><g>
+    <rect x="20.0" y="262.4" width="148.2" height="49.4" rx="24.7" fill="#fff" stroke="#ECECF1" stroke-width="1.3"/>
+    <circle cx="43.2" cy="287.1" r="16.2" fill="#E5FAED"/>
+    <g transform="translate(32.9,276.7) scale(1.156)"><g fill="none" stroke="#16A249" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M9 1.5 15 4v5.5c0 4-6 7.5-6 7.5s-6-3.5-6-7.5V4z"/><path d="M6 9l2 2 4-4"/></g></g>
+    <text x="68.5" y="292.7" text-anchor="start" font-family="DM Sans, system-ui, sans-serif" font-size="16.2" font-weight="600" fill="#3A3A44">Compliance</text>
+  </g><g>
+    <rect x="20.0" y="335.1" width="195.0" height="49.4" rx="24.7" fill="#fff" stroke="#ECECF1" stroke-width="1.3"/>
+    <circle cx="43.2" cy="359.8" r="16.2" fill="#E4EBFB"/>
+    <g transform="translate(32.9,349.4) scale(1.156)"><g fill="none" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round"><path d="M4 3h10M4 7h10M4 3c5 0 5 4 0 4H6l6 6"/></g></g>
+    <text x="68.5" y="365.3" text-anchor="start" font-family="DM Sans, system-ui, sans-serif" font-size="16.2" font-weight="600" fill="#3A3A44">Fee eligibility</text>
+  </g><g>
+    <rect x="20.0" y="439.8" width="195.0" height="49.4" rx="24.7" fill="#fff" stroke="#ECECF1" stroke-width="1.3"/>
+    <circle cx="43.2" cy="464.5" r="16.2" fill="#EDE9FE"/>
+    <g transform="translate(32.9,454.1) scale(1.156)"><g fill="none" stroke="#8B5CF6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="7.2"/><path d="M9 4.8V9l3 2"/></g></g>
+    <text x="68.5" y="470.0" text-anchor="start" font-family="DM Sans, system-ui, sans-serif" font-size="16.2" font-weight="600" fill="#3A3A44">Exam scheduling</text>
+  </g><g>
+    <rect x="1031.8" y="36.9" width="148.2" height="49.4" rx="24.7" fill="#fff" stroke="#ECECF1" stroke-width="1.3"/>
+    <circle cx="1156.8" cy="61.6" r="16.2" fill="#E4EBFB"/>
+    <g transform="translate(1146.3,51.2) scale(1.156)"><g fill="none" stroke="#2563EB" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M9 2 1 6l8 4 8-4Z"/><path d="M4.5 8v4c0 1.2 2 2.2 4.5 2.2s4.5-1 4.5-2.2V8"/></g></g>
+    <text x="1131.5" y="67.1" text-anchor="end" font-family="DM Sans, system-ui, sans-serif" font-size="16.2" font-weight="600" fill="#3A3A44">Placements</text>
+  </g><g>
+    <rect x="975.6" y="113.1" width="204.4" height="49.4" rx="24.7" fill="#fff" stroke="#ECECF1" stroke-width="1.3"/>
+    <circle cx="1156.8" cy="137.8" r="16.2" fill="#FCE7F3"/>
+    <g transform="translate(1146.3,127.4) scale(1.156)"><g fill="none" stroke="#DB2777" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M9 2 16.5 15.5h-15Z"/><path d="M9 7.4V11"/><path d="M9 13.2v.2"/></g></g>
+    <text x="1131.5" y="143.3" text-anchor="end" font-family="DM Sans, system-ui, sans-serif" font-size="16.2" font-weight="600" fill="#3A3A44">At-risk students</text>
+  </g><g>
+    <rect x="1003.7" y="236.1" width="176.3" height="49.4" rx="24.7" fill="#fff" stroke="#ECECF1" stroke-width="1.3"/>
+    <circle cx="1156.8" cy="260.8" r="16.2" fill="#E5FAED"/>
+    <g transform="translate(1146.3,250.4) scale(1.156)"><g fill="none" stroke="#16A249" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><circle cx="9" cy="7" r="5.2"/><path d="M6 11.5 4.8 16 9 14l4.2 2-1.2-4.5"/><path d="M6.6 6.7 8.2 8.3 11.6 4.9"/></g></g>
+    <text x="1131.5" y="266.3" text-anchor="end" font-family="DM Sans, system-ui, sans-serif" font-size="16.2" font-weight="600" fill="#3A3A44">Accreditation</text>
+  </g><g>
+    <rect x="1022.4" y="345.6" width="157.6" height="49.4" rx="24.7" fill="#fff" stroke="#ECECF1" stroke-width="1.3"/>
+    <circle cx="1156.8" cy="370.3" r="16.2" fill="#EDE9FE"/>
+    <g transform="translate(1146.3,359.9) scale(1.156)"><g fill="none" stroke="#8B5CF6" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><rect x="2" y="3" width="14" height="12" rx="2"/><circle cx="9" cy="8" r="2.4"/><path d="M5.5 15v-2.5c0-1 1.5-1.8 3.5-1.8s3.5.8 3.5 1.8V15"/></g></g>
+    <text x="1131.5" y="375.8" text-anchor="end" font-family="DM Sans, system-ui, sans-serif" font-size="16.2" font-weight="600" fill="#3A3A44">Credentials</text>
+  </g><g>
+    <rect x="1069.2" y="455.3" width="110.8" height="49.4" rx="24.7" fill="#fff" stroke="#ECECF1" stroke-width="1.3"/>
+    <circle cx="1156.8" cy="480.0" r="16.2" fill="#FFEDD5"/>
+    <g transform="translate(1146.3,469.6) scale(1.156)"><g fill="none" stroke="#F97316" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="6" r="3.2"/><path d="M2.8 16c0-3.6 2.7-6.2 6.2-6.2s6.2 2.6 6.2 6.2"/></g></g>
+    <text x="1131.5" y="485.5" text-anchor="end" font-family="DM Sans, system-ui, sans-serif" font-size="16.2" font-weight="600" fill="#3A3A44">Alumni</text>
+  </g>
+  <circle class="pulse-dot" cx="184.2" cy="53.0" r="5.5" fill="#fff" stroke="#8B5CF6" stroke-width="2.4" style="offset-path:path('M 184.2 53.0 C 376.1 53.0, 496.0 235.2, 536.0 260.0');animation-delay:0.00s"/><circle class="pulse-dot" cx="193.6" cy="161.8" r="5.5" fill="#fff" stroke="#8B5CF6" stroke-width="2.4" style="offset-path:path('M 193.6 161.8 C 379.8 161.8, 496.0 248.2, 536.0 260.0');animation-delay:0.26s"/><circle class="pulse-dot" cx="184.2" cy="287.1" r="5.5" fill="#fff" stroke="#8B5CF6" stroke-width="2.4" style="offset-path:path('M 184.2 287.1 C 376.1 287.1, 496.0 263.3, 536.0 260.0');animation-delay:0.52s"/><circle class="pulse-dot" cx="231.0" cy="359.8" r="5.5" fill="#fff" stroke="#8B5CF6" stroke-width="2.4" style="offset-path:path('M 231.0 359.8 C 394.8 359.8, 496.0 272.0, 536.0 260.0');animation-delay:0.78s"/><circle class="pulse-dot" cx="231.0" cy="464.5" r="5.5" fill="#fff" stroke="#8B5CF6" stroke-width="2.4" style="offset-path:path('M 231.0 464.5 C 394.8 464.5, 496.0 284.5, 536.0 260.0');animation-delay:1.04s"/><circle class="pulse-dot" cx="1015.8" cy="61.6" r="5.5" fill="#fff" stroke="#2563EB" stroke-width="2.4" style="offset-path:path('M 1015.8 61.6 C 823.9 61.6, 704.0 236.2, 664.0 260.0');animation-delay:1.30s"/><circle class="pulse-dot" cx="959.6" cy="137.8" r="5.5" fill="#fff" stroke="#2563EB" stroke-width="2.4" style="offset-path:path('M 959.6 137.8 C 801.5 137.8, 704.0 245.3, 664.0 260.0');animation-delay:1.56s"/><circle class="pulse-dot" cx="987.7" cy="260.8" r="5.5" fill="#fff" stroke="#2563EB" stroke-width="2.4" style="offset-path:path('M 987.7 260.8 C 812.7 260.8, 704.0 260.1, 664.0 260.0');animation-delay:1.82s"/><circle class="pulse-dot" cx="1006.4" cy="370.3" r="5.5" fill="#fff" stroke="#2563EB" stroke-width="2.4" style="offset-path:path('M 1006.4 370.3 C 820.2 370.3, 704.0 273.2, 664.0 260.0');animation-delay:2.08s"/><circle class="pulse-dot" cx="1053.2" cy="480.0" r="5.5" fill="#fff" stroke="#2563EB" stroke-width="2.4" style="offset-path:path('M 1053.2 480.0 C 838.9 480.0, 704.0 286.4, 664.0 260.0');animation-delay:2.34s"/>
+</svg>

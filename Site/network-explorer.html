@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HexP — Role &amp; module map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFFFF; --bg2:#F8FAFC; --ink:#020817; --muted:#64748B; --faint:#94A3B8; --line:#E2E8F0;
+    --blue:#6B26D9; --blue-d:#56209F; --blue-l:#EFE7FC;
+    --org:#F97316; --org-l:#FFEDD5; --grn:#16A249; --grn-l:#DCFCE7;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg2);color:var(--ink);font-family:"Inter",system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
+  button{font-family:inherit;cursor:pointer}
+
+  header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .hbar{max-width:1400px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:18px;letter-spacing:-.02em}
+  .brand a{color:inherit;text-decoration:none;display:flex;align-items:center;gap:9px}
+  .hsub{font-size:13px;color:var(--muted);margin-right:auto}
+  .search{position:relative}
+  .search input{width:280px;font:500 13.5px Inter,sans-serif;padding:9px 13px 9px 34px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);outline:none}
+  .search input:focus{border-color:var(--blue)}
+  .search svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:var(--faint);fill:none;stroke-width:2;stroke-linecap:round}
+  .tabs{display:flex;background:#fff;border:1px solid var(--line);border-radius:10px;padding:3px;gap:2px}
+  .tab{font-size:13px;font-weight:600;color:var(--muted);border:none;background:none;padding:6px 14px;border-radius:8px}
+  .tab.on{background:var(--blue);color:#fff}
+  .reset{font-size:13px;font-weight:600;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 14px}
+  .reset:hover{color:var(--blue-d);border-color:var(--blue)}
+
+  .layout{max-width:1400px;margin:0 auto;padding:26px 28px 80px;display:grid;grid-template-columns:230px 1fr;gap:26px;align-items:start}
+
+  .rail{position:sticky;top:76px;max-height:calc(100vh - 100px);overflow:auto;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px}
+  .rail h3{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);padding:2px 8px 10px}
+  .role{display:flex;align-items:center;gap:9px;width:100%;text-align:left;font-size:13px;font-weight:500;color:var(--ink);background:none;border:none;border-radius:9px;padding:7px 9px;transition:background .15s,opacity .2s}
+  .role .rd{width:9px;height:9px;border-radius:999px;background:var(--blue);flex:none}
+  .role:hover{background:var(--blue-l)}
+  .role.on{background:var(--blue);color:#fff;font-weight:600}
+  .role.on .rd{background:#fff}
+  .role.dim{opacity:.32}
+  .role .rc{margin-left:auto;font-size:11px;font-weight:600;color:var(--faint)}
+  .role.on .rc{color:rgba(255,255,255,.8)}
+
+  .cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+  .cat{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:opacity .25s}
+  .cat .ch{display:flex;align-items:center;gap:10px;width:100%;background:none;border:none;text-align:left;padding:14px 16px}
+  .cat .ch h4{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-d)}
+  .cat .ch .cnt{margin-left:auto;font-size:11.5px;font-weight:600;color:var(--muted);background:var(--bg2);border:1px solid var(--line);padding:2px 9px;border-radius:999px;white-space:nowrap}
+  .cat .ch .chev{width:14px;height:14px;stroke:var(--faint);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s}
+  .cat.closed .ch .chev{transform:rotate(-90deg)}
+  .cat .cb{padding:2px 14px 14px;display:flex;flex-wrap:wrap;gap:7px}
+  .cat.closed .cb{display:none}
+  .cat.empty{opacity:.45}
+  .feat{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:500;color:var(--ink);background:var(--bg2);border:1px solid var(--line);padding:6px 12px;border-radius:999px;transition:all .15s}
+  .feat .fd{width:7px;height:7px;border-radius:999px;background:var(--blue);flex:none;opacity:.55}
+  .feat.spot .fd{background:var(--org);opacity:1}
+  .feat:hover{border-color:var(--blue);color:var(--blue-d)}
+  .feat.on{background:var(--blue);border-color:var(--blue);color:#fff;font-weight:600}
+  .feat.on .fd{background:#fff}
+  .feat.hl{background:var(--blue-l);border-color:#C9AEF2;color:var(--blue-d)}
+  .feat.dim{opacity:.35}
+
+  .panel{position:fixed;top:0;right:0;bottom:0;width:min(400px,92vw);background:#fff;border-left:1px solid var(--line);box-shadow:-24px 0 60px -30px rgba(15,19,25,.25);z-index:30;padding:26px;overflow:auto;transform:translateX(105%);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+  .panel.show{transform:none}
+  .panel .badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-d);background:var(--blue-l);padding:5px 12px;border-radius:999px;margin-bottom:16px}
+  .panel .badge.f{color:#9A3412;background:var(--org-l)}
+  .panel .px{position:absolute;top:18px;right:18px;width:34px;height:34px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--muted);font-size:16px;line-height:1}
+  .panel h2{font-size:26px;letter-spacing:-.02em;margin-bottom:4px}
+  .panel .pc{font-size:14px;font-weight:600;color:var(--blue);margin-bottom:14px}
+  .panel .pd{font-size:14.5px;color:var(--muted);line-height:1.6;padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:18px}
+  .panel .pd.pending{font-style:italic;color:var(--faint)}
+  .panel h5{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);display:flex;align-items:center;gap:8px;margin-bottom:12px}
+  .panel h5 .n{font-size:11.5px;color:var(--blue-d);background:var(--blue-l);padding:1px 9px;border-radius:999px}
+  .panel .chips{display:flex;flex-wrap:wrap;gap:7px}
+
+  .hint{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:15;font-size:12.5px;color:var(--muted);background:rgba(255,255,255,.95);border:1px solid var(--line);border-radius:999px;padding:8px 18px;box-shadow:0 10px 30px -18px rgba(15,19,25,.3);white-space:nowrap}
+
+  @media(max-width:860px){
+    .layout{grid-template-columns:1fr;padding:18px 16px 70px}
+    .rail{position:static;max-height:none;display:flex;overflow-x:auto;gap:4px;padding:10px}
+    .rail h3{display:none}
+    .role{white-space:nowrap;width:auto}
+    .role .rc{display:none}
+    .search input{width:100%}
+    .hint{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hbar">
+    <div class="brand"><a href="HexP_landing_techademy.html"><svg width="19" height="22" viewBox="0 0 130 103"><g fill="none" stroke-width="10"><path d="M40 5 L64 19 L64 47 L40 61 L16 47 L16 19 Z" stroke="#6B26D9"/><path d="M88 5 L112 19 L112 47 L88 61 L64 47 L64 19 Z" stroke="#8B5CF6"/><path d="M64 47 L88 61 L88 89 L64 103 L40 89 L40 61 Z" stroke="#6B26D9"/></g></svg>HexP</a></div>
+    <div class="hsub">Role &amp; module map — every role on campus, every module they touch</div>
+    <div class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20 L16.5 16.5"/></svg><input id="q" type="search" placeholder="Search a role or module…" aria-label="Search"></div>
+    <div class="tabs" role="tablist">
+      <button class="tab on" data-t="all">All</button><button class="tab" data-t="roles">Roles</button><button class="tab" data-t="feats">Modules</button>
+    </div>
+    <button class="reset" id="reset">Reset</button>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="rail" id="rail" aria-label="University roles"><h3>University roles</h3></nav>
+  <main class="cats" id="cats"></main>
+</div>
+
+<aside class="panel" id="panel" aria-live="polite"></aside>
+<div class="hint">Click a role to see only what they use · click a module to see who uses it</div>
+
+<script>
+/* ================= DATA =================
+   Node inventory transcribed 1:1 from the client's mapping artifact.
+   EDGES + descriptions: verified entries only (Student, Security & Gate).
+   To complete: paste the client artifact's roles/features/edges data
+   over ROLES / CATS / EDGES below — the UI adapts automatically.     */
+var ROLES=[
+  {id:'super-admin',t:'Super Admin',d:''},
+  {id:'admin',t:'Admin',d:''},
+  {id:'registrar',t:'Registrar',d:''},
+  {id:'hod',t:'HOD',d:''},
+  {id:'faculty',t:'Faculty',d:''},
+  {id:'faculty-coordinator',t:'Faculty Coordinator',d:''},
+  {id:'student',t:'Student',d:'Learner — coursework, grades, fees, skilling, placement and campus services.'},
+  {id:'advisor',t:'Advisor / Mentor',d:''},
+  {id:'placement-officer',t:'Placement Officer',d:''},
+  {id:'employer',t:'Employer',d:''},
+  {id:'web-admin',t:'Web Admin',d:''},
+  {id:'marketing-officer',t:'Marketing Officer',d:''},
+  {id:'finance-officer',t:'Finance Officer',d:''},
+  {id:'librarian',t:'Librarian',d:''},
+  {id:'warden',t:'Warden',d:''},
+  {id:'transport-officer',t:'Transport Officer',d:''},
+  {id:'examinations-officer',t:'Examinations Officer',d:''},
+  {id:'it-admin',t:'IT Admin',d:''},
+  {id:'hr-manager',t:'HR Manager',d:''},
+  {id:'operations-staff',t:'Operations Staff',d:''},
+  {id:'purchase-officer',t:'Purchase Officer',d:''},
+  {id:'admissions-officer',t:'Admissions Officer',d:''},
+  {id:'staff',t:'Staff',d:''}
+];
+var CATS=[
+  {t:'Examinations',f:[['examinations','Examinations'],['question-papers','Question Papers'],['result-publishing','Result Publishing'],['certificates','Certificates']]},
+  {t:'Finance',f:[['fee-module','Fee Module'],['payments-receipts','Payments & Receipts'],['refunds','Refunds'],['fee-audit','Fee Audit / Parent Access'],['scholarships','Scholarships'],['accounts-console','Accounts Console']]},
+  {t:'Admissions',f:[['admissions','Admissions'],['phd-admissions','PhD Admissions & Management']]},
+  {t:'Placement & Skilling',f:[['placement-dashboard','Placement Dashboard'],['companies-partnerships','Companies & Partnerships'],['job-postings','Job Postings'],['applications-tracking','Applications Tracking'],['placement-drives','Placement Drives'],['student-placement-profiles','Student Placement Profiles'],['student-placement-portal','Student Placement Portal'],['internships','Internships'],['training-programs','Training Programs'],['career-counseling','Career Counseling'],['placement-reports','Placement Reports'],['talent-pool-api','Talent Pool & API'],['alpharecrewt','HEXP + AlphaRecrewt Integration','s'],['employer-portal','Employer Portal'],['alumni','Alumni'],['skilling','Skilling']]},
+  {t:'Outcomes & Grades',f:[['learning-outcomes','Learning Outcomes & Attainment'],['grade-book','Grade Book'],['grade-card','Grade Card / Breakdown'],['transcripts','Transcripts'],['graduation-clearance','Graduation Clearance'],['credits-abc','Credits & ABC','s']]},
+  {t:'Campus / ERP',f:[['hostel','Hostel'],['library','Library'],['canteen-mess','Canteen/Mess'],['transport','Transport'],['inventory-assets','Inventory & Assets'],['security-gate','Security & Gate','','Campus operations and back-office systems.'],['health-center','Health Center'],['grievances','Grievances'],['committees','Committees'],['timetable','Timetable'],['mentee-services','Mentee Services / Advising'],['cft','CFT (Incubation/Innovation)'],['clubs','Clubs'],['accreditation','Accreditation'],['hrms','HRMS']]},
+  {t:'Content & Platform',f:[['cms','CMS'],['docuhub','Document Hub (DocuHub)'],['public-website','Public Website'],['role-permission-manager','Role & Permission Manager'],['tenant-management','Tenant Management']]},
+  {t:'Academic Setup',f:[['user-management','User Management'],['faculty-management','Faculty Management'],['student-management','Student Management'],['user-groups','User Groups'],['academic-structure','Academic Structure'],['semesters','Semesters & Academic Years'],['course-offerings','Course Offerings'],['course-modules','Course Modules'],['batch-enrolment','Batch Enrolment']]},
+  {t:'Teaching & Content',f:[['learning-materials','Learning Materials'],['scorm','SCORM'],['hexp-studio','HEXP Studio','s'],['contentxchange','Marketplace / ContentXchange'],['assignments','Assignments'],['assessments','Assessments'],['quizzes','Quizzes'],['question-bank','Question Bank'],['auto-grading','Auto Grading (AI)','s'],['attendance','Attendance']]},
+  {t:'Engagement',f:[['discussion-forums','Discussion Forums'],['feedback','Feedback'],['communication','Communication'],['notifications','Notifications'],['help-support','Help & Support']]},
+  {t:'Insight',f:[['dashboard','Dashboard'],['reports-center','Reports Center'],['analytics','Analytics','s'],['audit-logs','Audit Logs']]}
+];
+var EDGES=[
+  /* Student — verified complete (25) */
+  ['student','certificates'],['student','fee-module'],['student','payments-receipts'],['student','hostel'],['student','library'],
+  ['student','canteen-mess'],['student','transport'],['student','health-center'],['student','grievances'],['student','timetable'],
+  ['student','student-placement-portal'],['student','learning-outcomes'],['student','grade-book'],['student','grade-card'],
+  ['student','transcripts'],['student','credits-abc'],['student','contentxchange'],['student','assessments'],['student','quizzes'],
+  ['student','discussion-forums'],['student','feedback'],['student','notifications'],['student','help-support'],['student','dashboard'],['student','skilling'],
+  /* Security & Gate — verified complete (5) */
+  ['super-admin','security-gate'],['admin','security-gate'],['registrar','security-gate'],['it-admin','security-gate'],['operations-staff','security-gate']
+];
+/* ========== END DATA ========== */
+
+var FEATS={},CATOF={};
+CATS.forEach(function(c){c.f.forEach(function(f){FEATS[f[0]]={id:f[0],t:f[1],spot:f[2]==='s',d:f[3]||'',cat:c.t}})});
+var R_E={},F_E={};
+ROLES.forEach(function(r){R_E[r.id]=[]});Object.keys(FEATS).forEach(function(k){F_E[k]=[]});
+EDGES.forEach(function(e){if(R_E[e[0]]&&F_E[e[1]]){R_E[e[0]].push(e[1]);F_E[e[1]].push(e[0])}});
+
+var rail=document.getElementById('rail'),cats=document.getElementById('cats'),panel=document.getElementById('panel'),q=document.getElementById('q');
+var sel=null,tab='all',query='';
+
+ROLES.forEach(function(r){
+  var b=document.createElement('button');b.className='role';b.id='role-'+r.id;
+  b.innerHTML='<span class="rd"></span>'+r.t+(R_E[r.id].length?'<span class="rc">'+R_E[r.id].length+'</span>':'');
+  b.addEventListener('click',function(){select(sel&&sel.type==='r'&&sel.id===r.id?null:{type:'r',id:r.id})});
+  rail.appendChild(b);
+});
+CATS.forEach(function(c,ci){
+  var d=document.createElement('section');d.className='cat';d.id='cat-'+ci;
+  var pills=c.f.map(function(f){
+    var ft=FEATS[f[0]];
+    return '<button class="feat'+(ft.spot?' spot':'')+'" id="feat-'+ft.id+'"><span class="fd"></span>'+ft.t+'</button>';
+  }).join('');
+  d.innerHTML='<button class="ch"><h4>'+c.t+'</h4><span class="cnt">'+c.f.length+' modules</span><svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-9-6z" fill="none"/><path d="M6 9l6 6 6-6"/></svg></button><div class="cb">'+pills+'</div>';
+  d.querySelector('.ch').addEventListener('click',function(){d.classList.toggle('closed')});
+  cats.appendChild(d);
+  c.f.forEach(function(f){
+    document.getElementById('feat-'+f[0]).addEventListener('click',function(){select(sel&&sel.type==='f'&&sel.id===f[0]?null:{type:'f',id:f[0]})});
+  });
+});
+
+function select(s){sel=s;apply()}
+function apply(){
+  var conn={};
+  if(sel){(sel.type==='r'?R_E[sel.id]:F_E[sel.id]).forEach(function(x){conn[x]=1})}
+  ROLES.forEach(function(r){
+    var el=document.getElementById('role-'+r.id);
+    el.classList.toggle('on',!!sel&&sel.type==='r'&&sel.id===r.id);
+    el.classList.toggle('dim',!!sel&&!(sel.type==='r'&&sel.id===r.id)&&!(sel.type==='f'&&conn[r.id]));
+  });
+  CATS.forEach(function(c,ci){
+    var cd=document.getElementById('cat-'+ci),any=false,shown=0;
+    c.f.forEach(function(f){
+      var ft=FEATS[f[0]],el=document.getElementById('feat-'+f[0]);
+      var isSel=sel&&sel.type==='f'&&sel.id===f[0];
+      var isConn=sel&&sel.type==='r'&&conn[f[0]];
+      el.classList.toggle('on',!!isSel);
+      el.classList.toggle('hl',!!isConn);
+      var vis=true;
+      if(sel&&sel.type==='r')vis=!!isConn;           /* hybrid: role focus shows only its modules */
+      if(query)vis=vis&&ft.t.toLowerCase().indexOf(query)>-1;
+      if(tab==='roles')vis=vis&&!!sel;
+      el.style.display=vis?'':'none';
+      el.classList.toggle('dim',!!sel&&sel.type==='f'&&!isSel);
+      if(vis){any=true;shown++}
+    });
+    var cnt=cd.querySelector('.cnt');
+    cnt.textContent=(sel&&sel.type==='r')?(shown+' of '+c.f.length):(shown<c.f.length&&(query||tab==='roles')?shown+' of '+c.f.length:c.f.length+' modules');
+    cd.classList.toggle('closed',!any);
+    cd.classList.toggle('empty',!any);
+  });
+  renderPanel();
+}
+function chip(id,isRole){
+  var t=isRole?ROLES.find(function(r){return r.id===id}).t:FEATS[id].t;
+  var spot=!isRole&&FEATS[id].spot;
+  return '<button class="feat'+(spot?' spot':'')+'" data-nav="'+(isRole?'r':'f')+':'+id+'"><span class="fd"></span>'+t+'</button>';
+}
+function renderPanel(){
+  if(!sel){panel.classList.remove('show');return}
+  var isR=sel.type==='r';
+  var n=isR?ROLES.find(function(r){return r.id===sel.id}):FEATS[sel.id];
+  var links=isR?R_E[sel.id]:F_E[sel.id];
+  panel.innerHTML='<button class="px" aria-label="Close">✕</button>'
+    +'<span class="badge'+(isR?'':' f')+'">'+(isR?'University role':'Feature / Module')+'</span>'
+    +'<h2>'+n.t+'</h2>'
+    +(isR?'<div class="pc">Platform role</div>':'<div class="pc">'+n.cat+'</div>')
+    +(n.d?'<div class="pd">'+n.d+'</div>':'<div class="pd pending">Description pending — will be filled from the client dataset.</div>')
+    +'<h5>Connections <span class="n">'+(links.length||'—')+'</span></h5>'
+    +(links.length?'<div class="chips">'+links.map(function(x){return chip(x,!isR)}).join('')+'</div>'
+      :'<div class="pd pending" style="border:none">Connection data pending for this node.</div>');
+  panel.querySelector('.px').addEventListener('click',function(){select(null)});
+  panel.querySelectorAll('[data-nav]').forEach(function(b){
+    b.addEventListener('click',function(){var p=b.getAttribute('data-nav').split(':');select({type:p[0],id:p[1]});
+      var t=document.getElementById((p[0]==='r'?'role-':'feat-')+p[1]);if(t)t.scrollIntoView({block:'center',behavior:'smooth'})});
+  });
+  panel.classList.add('show');
+}
+q.addEventListener('input',function(){query=q.value.trim().toLowerCase();
+  if(tab!=='feats'){ROLES.forEach(function(r){var el=document.getElementById('role-'+r.id);
+    el.style.display=(!query||r.t.toLowerCase().indexOf(query)>-1)?'':'none'})}
+  apply()});
+document.querySelectorAll('.tab').forEach(function(b){
+  b.addEventListener('click',function(){tab=b.getAttribute('data-t');
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.toggle('on',x===b)});
+    ROLES.forEach(function(r){document.getElementById('role-'+r.id).style.display=(tab==='feats')?'none':(!query||r.t.toLowerCase().indexOf(query)>-1)?'':'none'});
+    apply()});
+});
+document.getElementById('reset').addEventListener('click',function(){
+  q.value='';query='';tab='all';
+  document.querySelectorAll('.tab').forEach(function(x){x.classList.toggle('on',x.getAttribute('data-t')==='all')});
+  ROLES.forEach(function(r){document.getElementById('role-'+r.id).style.display=''});
+  select(null)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')select(null)});
+apply();
+</script>
+</body>
+</html>

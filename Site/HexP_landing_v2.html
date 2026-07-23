@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Techademy palette · HexP — modern variant</title>
+<title>HexP — hero v2 (bowtie network)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -63,29 +63,23 @@
   .nav-cta{border-radius:999px;padding:10px 20px;font-size:14.5px;font-weight:600}
   .brand{font-weight:600;font-size:20px}
 
-  .hero{text-align:center;padding:150px 0 40px;max-width:540px;margin:0 auto}
-  .hero h1{font-size:50px;margin:22px 0 20px}
+  .hero-top{text-align:center;padding:140px 0 0;max-width:620px;margin:0 auto}
+  .hero-bottom{text-align:center;padding:6px 0 40px;max-width:540px;margin:0 auto}
+  .hero-top h1{font-size:44px;margin:22px 0 0}
   .h1wrap{position:relative;display:inline-block}
   .h1wrap .spark{position:absolute}
   .h1wrap .spark-l{width:30px;height:26px;top:14px;left:-40px}
   .h1wrap .spark-s{width:20px;height:17px;bottom:36px;right:-30px}
-  .hero p{font-size:19px;color:var(--muted);max-width:540px;margin:0 auto 30px}
+  .hero-bottom p{font-size:19px;color:var(--muted);max-width:540px;margin:0 auto 30px}
   .hero-cta{display:flex;gap:12px;justify-content:center}
-  .hero-sec{position:relative;overflow:hidden;background:#fff}
+  .hero-bowtie-wrap{max-width:1180px;margin:20px auto 8px;padding:0 4%}
+  .hero-bowtie{width:100%;height:auto;display:block}
+  @media(max-width:900px){.hero-bowtie-wrap{margin-top:10px}}
+  .hero-sec{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 50% 0%,#F3F0FC 0%,#fff 62%)}
   .hero-sec .wrap{position:relative;z-index:1}
   .hero-sec .navwrap{position:absolute;top:20px;left:0;right:0;z-index:3;margin:0 auto}
   .hero-pills{position:absolute;top:0;left:50%;transform:translateX(-50%);width:1200px;height:470px;z-index:0;pointer-events:none}
   @media(max-width:1040px){.hero-pills{display:none}}
-  .hero-illus-l,.hero-illus-r{position:absolute;top:0;width:54vw;max-width:620px;z-index:0;pointer-events:none}
-  .hero-illus-l{left:0}
-  .hero-illus-r{right:0;transform:scaleX(-1)}
-  .hero-shine{position:absolute;top:0;width:54vw;max-width:620px;z-index:1;pointer-events:none;opacity:0;mix-blend-mode:screen;
-    background-image:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.5) 50%,transparent 58%);
-    background-size:260% 260%;background-repeat:no-repeat}
-  .hero-shine.on{opacity:1}
-  .hero-shine-l{left:0}
-  .hero-shine-r{right:0;transform:scaleX(-1)}
-  @media(max-width:900px){.hero-illus-l,.hero-illus-r,.hero-shine{width:76vw}}
 
   .device{margin:110px auto 0;position:relative;z-index:1;max-width:1000px;background:var(--bg2);border:1px solid var(--line);border-radius:20px;padding:10px;box-shadow:0 30px 80px -44px rgba(15,19,25,.4)}
   .screen{background:#fff;border:1px solid var(--line);border-radius:13px;overflow:hidden}
@@ -238,23 +232,10 @@
     .reveal.in-view{opacity:1;transform:translateY(0)}
   }
 
-  /* --- hero: illustration entrance + ambient flow, sparkle twinkle, word-in text --- */
+  /* --- hero: bowtie entrance, sparkle twinkle, word-in text --- */
   @media (prefers-reduced-motion: no-preference){
-    @keyframes heroReveal{from{-webkit-mask-size:100% 0%;mask-size:100% 0%}to{-webkit-mask-size:100% 100%;mask-size:100% 100%}}
-    .hero-illus-l,.hero-illus-r{
-      -webkit-mask-image:linear-gradient(#000 0,#000 calc(100% - 46px),transparent 100%);
-      mask-image:linear-gradient(#000 0,#000 calc(100% - 46px),transparent 100%);
-      -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
-      -webkit-mask-position:top;mask-position:top;
-      -webkit-mask-size:100% 0%;mask-size:100% 0%;
-      animation:heroReveal 1.6s cubic-bezier(.3,.1,.2,1) .2s forwards;
-    }
-
-    @keyframes shineSweep{
-      0%{background-position:230% 230%}
-      100%{background-position:-70% -70%}
-    }
-    .hero-shine.on{animation:shineSweep 7.5s ease-in-out infinite alternate}
+    @keyframes bowtieIn{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+    .hero-bowtie-wrap{animation:bowtieIn 1.1s cubic-bezier(.16,.84,.44,1) .3s both}
 
     @keyframes twinkle{0%,100%{opacity:.5;transform:scale(.82) rotate(0deg)}50%{opacity:1;transform:scale(1.18) rotate(10deg)}}
     .h1wrap .spark-l{animation:twinkle 2.8s ease-in-out 1s infinite}
@@ -281,10 +262,6 @@
       <a href="#" class="btn btn-primary nav-cta">Contact Us</a>
     </nav>
   </div>
-  <img class="hero-illus-l" src="assets/hero-illus-single.svg" alt="">
-  <div class="hero-shine hero-shine-l"></div>
-  <img class="hero-illus-r" src="assets/hero-illus-single.svg" alt="">
-  <div class="hero-shine hero-shine-r"></div>
   <svg class="hero-pills" viewBox="0 0 1200 470" xmlns="http://www.w3.org/2000/svg" style="display:none">
     <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="14" opacity="0.9">
       <path d="M250 109 C 285 109, 300 176, 300 235" stroke="#D6F0DE"/>
@@ -333,12 +310,19 @@
     </g>
   </svg>
   <div class="wrap">
-  <div class="hero">
+  <div class="hero-top">
     <div class="h1wrap">
       <h1><span class="wm"><span class="wi" style="animation-delay:.1s">The</span></span> <span class="wm"><span class="wi" style="animation-delay:.16s">Unified,</span></span> <span class="wm"><span class="wi" style="animation-delay:.22s">Intelligent</span></span> <span class="wm"><span class="wi" style="animation-delay:.28s">University</span></span> <span class="wm"><span class="wi" style="animation-delay:.34s">Built</span></span> <span class="wm"><span class="wi" style="animation-delay:.4s">for</span></span> <span class="wm"><span class="wi" style="animation-delay:.46s">Tomorrow</span></span></h1>
       <svg class="spark spark-l" viewBox="0 0 24 20" fill="#6B26D9"><path d="M12 1C12.9 6.7 14.6 8.4 20 9.3C14.6 10.2 12.9 11.9 12 17.6C11.1 11.9 9.4 10.2 4 9.3C9.4 8.4 11.1 6.7 12 1Z"/></svg>
       <svg class="spark spark-s" viewBox="0 0 24 20" fill="#8B5CF6"><path d="M12 1C12.9 6.7 14.6 8.4 20 9.3C14.6 10.2 12.9 11.9 12 17.6C11.1 11.9 9.4 10.2 4 9.3C9.4 8.4 11.1 6.7 12 1Z"/></svg>
     </div>
+  </div>
+
+  <div class="hero-bowtie-wrap">
+    <img class="hero-bowtie" src="assets/hero-bowtie-v11-static.svg" alt="Every part of university operations converging through HexP into better outcomes">
+  </div>
+
+  <div class="hero-bottom">
     <p>This is the beginning of better - where admissions, compliance, and outcomes finally run on one intelligent, AI-powered system, freeing universities to deliver stronger learning experiences.</p>
     <div class="hero-cta"><a href="#" class="btn btn-primary">Book a demo</a></div>
   </div>
@@ -776,14 +760,6 @@
     document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in-view')});
   }
 
-  document.querySelectorAll('.hero-illus-l,.hero-illus-r').forEach(function(img){
-    img.addEventListener('animationend',function(e){
-      if(e.animationName==='heroReveal'){
-        var shine=img.nextElementSibling;
-        if(shine&&shine.classList.contains('hero-shine'))shine.classList.add('on');
-      }
-    });
-  });
 
   (function(){
     var track=document.getElementById('modTrack');
